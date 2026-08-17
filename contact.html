@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Prismabit | Get Quote for Web Development Services Guwahati</title>
+  <meta name="description"
+    content="Get in touch with Prismabit. Ready to start your project? Contact us for expert digital solutions and innovative development services." />
+  <meta name="keywords"
+    content="Contact Prismabit, Web Development Quote, Digital Agency Contact, Guwahati IT Support, Hire Developers Assam" />
+  <link rel="canonical" href="https://www.prismabit.co.in/contact.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.prismabit.co.in/contact.html" />
+  <meta property="og:title" content="Contact Prismabit | Get Quote for Web Development Services Guwahati" />
+  <meta property="og:description"
+    content="Get in touch with Prismabit. Ready to start your project? Contact us for expert digital solutions and innovative development services." />
+  <meta property="og:image" content="https://www.prismabit.co.in/assets/images/prisma-logo.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.prismabit.co.in/contact.html" />
+  <meta property="twitter:title" content="Contact Prismabit | Get Quote for Web Development Services Guwahati" />
+  <meta property="twitter:description"
+    content="Get in touch with Prismabit. Ready to start your project? Contact us for expert digital solutions and innovative development services." />
+  <meta property="twitter:image" content="https://www.prismabit.co.in/assets/images/prisma-logo.png" />
+
+  <!-- ✅ Favicon (Logo in browser tab) -->
+  <link rel="icon" href="assets/images/prisma-logo.png" type="image/png" />
+
+  <script src="assets/js/cdn.tailwindcss.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/common.css">
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Schema.org Contact Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Prismabit",
+    "description": "Get in touch with Prismabit for web development, digital solutions, and AI integration services in Guwahati.",
+    "url": "https://www.prismabit.co.in/contact.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Prismabit",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Zudio Showroom, Chachal, VIP Road, Six Mile",
+        "addressLocality": "Guwahati",
+        "addressRegion": "Assam",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-60035-43005",
+        "contactType": "customer service",
+        "email": "prismabitdigital@gmail.com"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* Additional styles for better form focus and details cards */
+    .contact-detail-card {
+      background-color: #101010;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-detail-card:hover {
+      border-color: rgba(0, 123, 255, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .form-input {
+      background-color: #06141B;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 0 1px #007BFF;
+    }
+
+    /* Nebula background effect for the hero section */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 80% 40%, rgba(0, 123, 255, 0.15), transparent 70%),
+        /* Blue */
+        radial-gradient(ellipse 40% 50% at 20% 60%, rgba(192, 132, 252, 0.12), transparent 70%);
+      /* Purple */
+      opacity: 0;
+      animation: fadeIn 1.2s 0.2s forwards;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown-menu {
+      display: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .group:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Popup Modal Styles */
+    .popup-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-content {
+      background: #1a1a1a;
+      border: 2px solid #333333;
+      border-radius: 24px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .popup-modal.show .popup-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 24px;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease;
+    }
+
+    .popup-close:hover {
+      color: white;
+    }
+
+    .popup-prism {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem;
+      filter: drop-shadow(0 0 10px rgba(204, 208, 207, 0.6));
+      animation: popupPrismGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes popupPrismGlow {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 10px rgba(204, 208, 207, 0.6));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 20px rgba(204, 208, 207, 1)) drop-shadow(0 0 30px rgba(0, 123, 255, 0.5));
+      }
+    }
+
+    .popup-button {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .popup-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+    }
+  </style>
+
+  <style>
+    /* Minimal Loader */
+    .loader {
+      width: 72px;
+      height: 72px;
+      border: 3px solid transparent;
+      border-top-color: #22d3ee;
+      border-radius: 50%;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Success Circle + Tick */
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid #22d3ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      animation: pop 0.3s ease-out forwards;
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    @keyframes pop {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .success-icon svg path {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: draw 0.6s ease forwards 0.2s;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Overlay + Modal (reuse your styles but minimal tweaks) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: #111;
+      border-radius: 18px;
+      padding: 2rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.show .modal-content {
+      transform: translateY(0) scale(1);
+    }
+  </style>
+
+</head>
+
+<body class="bg-primary text-secondary">
+
+  <!-- Header Navigation -->
+  <header id="header-nav"
+    class="fixed top-0 left-0 right-0 z-40 bg-primary/80 backdrop-blur-sm border-b border-white/20 transition-all duration-500 ease-in-out">
+    <nav class="container mx-auto flex justify-between items-center p-6">
+      <a href="index.html?nosplash=true" id="header-logo" class="flex items-center space-x-2 group">
+        <div class="w-8 h-8 relative">
+          <div id="header-dispersion"
+            class="absolute inset-[-4px] dispersion-glow opacity-0 transition-opacity duration-300"></div>
+          <svg viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <defs>
+              <clipPath id="headerClipLeft">
+                <rect x="-3" y="-3" width="15" height="30" />
+              </clipPath>
+              <clipPath id="headerClipRight">
+                <rect x="12" y="-3" width="16.5" height="30" />
+              </clipPath>
+            </defs>
+            <g id="header-prism-left" class="prism-half left" clip-path="url(#headerClipLeft)">
+              <path d="M13,2l9,13.6L13,22ZM11,2,2,15.6,11,22Z" fill="#CCD0CF" />
+            </g>
+            <g id="header-prism-right" class="prism-half right" clip-path="url(#headerClipRight)">
+              <path d="M13,2l9,13.6L13,22ZM11,2,2,15.6,11,22Z" fill="#CCD0CF" />
+            </g>
+          </svg>
+        </div>
+        <span id="header-wordmark" class="font-bold text-xl text-white cursor-pointer">Prismabit</span>
+      </a>
+      <div class="hidden md:flex space-x-8 text-white items-center">
+        <a href="work.html" class="nav-link hover:text-[#007BFF] transition-colors">Work</a>
+        <a href="services.html" class="nav-link hover:text-[#007BFF] transition-colors">Services</a>
+        <a href="pricing-plans.html" class="nav-link hover:text-[#007BFF] transition-colors">Plans</a>
+        <a href="free-digital-audit-guwahati.html" class="nav-link hover:text-[#007BFF] transition-colors">Free
+          Audit</a>
+
+
+        <!-- <div class="relative group">
+          <button class="nav-link hover:text-[#007BFF] transition-colors dropdown-toggle" aria-haspopup="true" aria-expanded="false">Industries</button>
+          <div class="dropdown-menu absolute right-0 mt-2 w-52 bg-[#101010]/90 backdrop-blur-xl border border-blue-400/50 rounded-xl shadow-xl hidden">
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Government</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Manufacturing</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Retail & E‑commerce</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Finance</a>
+          </div>
+        </div> -->
+
+        <!-- <div class="relative group">
+          <button class="nav-link hover:text-[#007BFF] transition-colors dropdown-toggle" aria-haspopup="true" aria-expanded="false">Tech</button>
+          <div class="dropdown-menu absolute right-0 mt-2 w-56 bg-[#101010]/90 backdrop-blur-xl border border-blue-400/50 rounded-xl shadow-xl hidden">
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Web (React, Vue)</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Mobile (Flutter, RN)</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Cloud (AWS, Azure)</a>
+            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">AI/ML</a>
+          </div>
+        </div> -->
+
+        <a href="about.html" class="nav-link hover:text-[#007BFF] transition-colors">About</a>
+        <a href="careers.html" class="nav-link hover:text-[#007BFF] transition-colors">Careers</a>
+        <a href="contact.html" class="nav-link text-[#007BFF] font-bold transition-colors">Contact</a>
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-button" class="text-white hover:text-[#007BFF] focus:outline-none">
+          <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+          <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#101010] border-t border-white/20">
+      <div class="px-6 py-4 space-y-1">
+        <a href="work.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Work</a>
+        <a href="services.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Services</a>
+        <a href="pricing-plans.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Plans</a>
+        <a href="free-digital-audit-guwahati.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Free
+          Audit</a>
+
+        <!-- <details class="group">
+              <summary class="flex items-center justify-between py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 cursor-pointer">Industries</summary>
+              <div class="pl-4 py-1">
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Government</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Manufacturing</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Retail & E‑commerce</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Finance</a>
+              </div>
+            </details> -->
+        <!-- <details class="group">
+              <summary class="flex items-center justify-between py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 cursor-pointer">Tech</summary>
+              <div class="pl-4 py-1">
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Web (React, Vue)</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Mobile (Flutter, RN)</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Cloud (AWS, Azure)</a>
+                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">AI/ML</a>
+              </div>
+            </details> -->
+        <a href="about.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">About</a>
+        <a href="careers.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Careers</a>
+        <a href="contact.html"
+          class="block py-2 px-3 rounded-md text-base font-medium bg-white/10 text-[#007BFF]">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="pt-24">
+
+
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="popup-modal">
+      <div class="popup-content">
+        <button class="popup-close" onclick="hidePopup()">&times;</button>
+        <div class="popup-prism">
+          <svg viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <path d="M13,2l9,13.6L13,22ZM11,2,2,15.6,11,22Z" fill="#CCD0CF" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Welcome to Prismabit</h3>
+        <p class="text-white/80 mb-6 leading-relaxed">
+          We're offering FREE comprehensive digital audits to help you unlock your business potential. Don't miss this
+          limited-time opportunity!
+        </p>
+        <a href="free-digital-audit-guwahati.html" class="popup-button">
+          <span>Get Free Audit</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- CONTACT HERO -->
+    <section class="hero-section">
+      <div class="relative z-10 py-20 sm:py-32 text-center container mx-auto px-6">
+        <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-4">Let's Connect</h1>
+        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+          Have a question, a project idea, or just want to say hello? We'd love to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM & DETAILS -->
+    <section class="pb-20 sm:pb-32 container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2 bg-[#101010] border border-white/10 p-8 rounded-2xl shadow-lg reveal-on-scroll">
+          <h2 class="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="first-name" class="block text-sm font-medium text-white/80">First Name</label>
+              <input type="text" name="firstname" id="firstname"
+                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+            </div>
+            <div>
+              <label for="last-name" class="block text-sm font-medium text-white/80">Last Name</label>
+              <input type="text" name="lastname" id="lastname"
+                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+            </div>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-white/80">Email</label>
+            <input type="email" name="email" id="email"
+              class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-white/80">Message</label>
+            <textarea id="message" name="message" rows="4"
+              class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3"></textarea>
+          </div>
+          <div>
+            <button onclick="submit()" type="submit"
+              class="mt-3 w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#007BFF] hover:bg-[#0056b3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#007BFF] transition-colors">
+              Send Message
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal-overlay">
+          <div class="modal-content relative">
+            <!-- <button class="modal-close " onclick="closeModal()">&times;</button> -->
+
+            <!-- Animated Icon -->
+            <div class="modal-icon relative">
+              <!-- Loader -->
+              <div id="loader" class="loader"></div>
+
+              <!-- Success Circle + Tick -->
+              <div id="success" class="success-icon hidden">
+                <svg class="w-8 h-8 text-[#22d3ee]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Text -->
+            <h3 class="modal-title">Thank You!</h3>
+            <p class="modal-message">
+              Queries has been received successfully.
+              We will get back to you soon.
+            </p>
+            <button class="modal-button" onclick="closeModal()">Continue</button>
+          </div>
+        </div>
+
+
+
+
+        <!-- Contact Details -->
+        <div class="space-y-6 reveal-on-scroll" style="transition-delay:150ms;">
+          <div class="contact-detail-card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-white mb-2">Our Office</h3>
+            <p class="text-white/80">Near Zudio Showroom, Chachal, VIP Road, Six Mile, Guwahati, Assam, India</p>
+          </div>
+          <div class="contact-detail-card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-white mb-2 ">Email Us</h3>
+            <a href="mailto:prismabitdigital@gmail.com"
+              class="text-white/80 hover:text-[#007BFF] transition-colors">prismabitdigital@gmail.com</a>
+          </div>
+          <div class="contact-detail-card p-6 rounded-2xl">
+            <h3 class="text-xl font-bold text-white mb-2">Call Us</h3>
+            <p class="text-white/80">+91 60035 43005</p>
+          </div>
+          <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden border border-white/10">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.76694228709!2d91.80850747486859!3d26.139140892907125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a597fb1c9cf19%3A0x84c59b766c534616!2sTech%20Junction!5e0!3m2!1sen!2sin!4v1757329713224!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-[#0a0a0a] text-white relative overflow-hidden">
+    <!-- Subtle Grain Effect -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="grain-texture"></div>
+    </div>
+
+    <!-- Cosmic Background -->
+    <div class="cosmic-background">
+      <div class="stars"></div>
+      <div class="stars"></div>
+      <div class="stars"></div>
+    </div>
+
+    <!-- Footer Content -->
+    <div class="relative z-10 flex flex-col">
+      <!-- Let's Talk CTA Section -->
+      <div class="py-20 sm:py-32 flex-1 flex flex-col justify-center">
+        <div class="container mx-auto px-6 text-center">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+              Have a project in mind?
+            </h2>
+            <p class="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+              We're ready to help you build the next big thing. Reach out to us and let's start the conversation.
+            </p>
+            <a href="contact.html"
+              class="inline-flex items-center px-8 py-3 bg-[#007BFF] text-white font-semibold rounded-lg hover:bg-[#0056b3] transition-colors duration-300">Get
+              in Touch <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Links Section -->
+      <div class="border-t border-white/10 ">
+        <div class="container mx-auto px-6 py-16 md:pl-56">
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            <!-- Brand Column -->
+            <div class="lg:col-span-2">
+              <div class="flex items-center space-x-2 mb-6">
+                <div class="w-8 h-8 relative">
+                  <svg viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M13,2l9,13.6L13,22ZM11,2,2,15.6,11,22Z" fill="white" />
+                  </svg>
+                </div>
+                <span class="font-bold text-xl">Prismabit</span>
+              </div>
+              <p class="text-white/60 mb-8 max-w-md leading-relaxed">
+                Transforming complex ideas into elegant digital solutions. We build the future of digital experiences
+                through innovative web development, AI integration, and cloud solutions.
+              </p>
+
+              <!-- Contact Info -->
+              <div class="space-y-3 mb-8">
+                <div class="flex items-center text-white/60">
+                  <svg class="w-4 h-4 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span class="text-sm">Guwahati, Assam, India</span>
+                </div>
+                <div class="flex items-center text-white/60">
+                  <svg class="w-4 h-4 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span class="text-sm">+91 60035 43005</span>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex space-x-4">
+                <a href="https://www.linkedin.com/company/prismabit" target="_blank" aria-label="LinkedIn"
+                  class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:text-[#007BFF] hover:bg-white/10 hover:border-[#007BFF]/30 transition-all duration-300 hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
+
+                <a href="https://www.instagram.com/prismabitdigital" target="_blank" aria-label="Instagram"
+                  class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:text-[#E4405F] hover:bg-white/10 hover:border-[#E4405F]/30 transition-all duration-300 hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.427.403a4.92 4.92 0 011.78 1.153 4.92 4.92 0 011.153 1.78c.163.457.347 1.257.403 2.427.058 1.266.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.403 2.427a4.902 4.902 0 01-1.153 1.78 4.92 4.92 0 01-1.78 1.153c-.457.163-1.257.347-2.427.403-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.427-.403a4.92 4.92 0 01-1.78-1.153 4.92 4.92 0 01-1.153-1.78c-.163-.457-.347-1.257-.403-2.427C2.175 15.747 2.163 15.368 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.403-2.427a4.902 4.902 0 011.153-1.78 4.92 4.92 0 011.78-1.153c.457-.163 1.257-.347 2.427-.403C8.416 2.175 8.796 2.163 12 2.163zm0 1.837c-3.17 0-3.548.012-4.795.07-1.026.047-1.58.218-1.945.363-.49.19-.84.416-1.21.786a3.084 3.084 0 00-.787 1.21c-.145.365-.316.919-.362 1.945-.059 1.247-.071 1.625-.071 4.786s.012 3.548.07 4.795c.047 1.026.218 1.58.363 1.945.19.49.416.84.786 1.21.37.37.72.597 1.21.787.365.145.919.316 1.945.362 1.247.059 1.625.071 4.795.071s3.548-.012 4.795-.07c1.026-.047 1.58-.218 1.945-.363.49-.19.84-.416 1.21-.786.37-.37.597-.72.787-1.21.145-.365.316-.919.362-1.945.059-1.247.071-1.625.071-4.795s-.012-3.548-.07-4.795c-.047-1.026-.218-1.58-.363-1.945a3.084 3.084 0 00-.786-1.21 3.084 3.084 0 00-1.21-.787c-.365-.145-.919-.316-1.945-.362-1.247-.059-1.625-.071-4.795-.071zm0 3.918a5.919 5.919 0 110 11.837 5.919 5.919 0 010-11.837zm0 9.77a3.851 3.851 0 100-7.702 3.851 3.851 0 000 7.702zm6.406-10.97a1.386 1.386 0 110-2.772 1.386 1.386 0 010 2.772z" />
+                  </svg>
+                </a>
+
+                <a href="https://www.facebook.com/prismabitdigital" target="_blank" aria-label="Facebook"
+                  class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:text-[#1877F2] hover:bg-white/10 hover:border-[#1877F2]/30 transition-all duration-300 hover:scale-110">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.494v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.66-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z" />
+                  </svg>
+                </a>
+
+                <a href="http://www.youtube.com/@PrismabitApp" target="_blank" aria-label="YouTube"
+                  class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:text-[#FF0000] hover:bg-white/10 hover:border-[#FF0000]/30 transition-all duration-300 hover:scale-110">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M23.498 6.186a2.993 2.993 0 0 0-2.107-2.121C19.56 3.5 12 3.5 12 3.5s-7.56 0-9.391.565A2.993 2.993 0 0 0 .502 6.186C0 8.028 0 12 0 12s0 3.972.502 5.814a2.993 2.993 0 0 0 2.107 2.121C4.44 20.5 12 20.5 12 20.5s7.56 0 9.391-.565a2.993 2.993 0 0 0 2.107-2.121C24 15.972 24 12 24 12s0-3.972-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+
+
+                <a href="https://www.upwork.com/agencies/1870799896957748696/" target="_blank" aria-label="Upwork"
+                  class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white/60 hover:text-[#6fda44] hover:bg-white/10 hover:border-[#6fda44]/30 transition-all duration-300 hover:scale-110">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19.99 10.53c-1.315 0-2.427.732-3.085 1.83l-.098.155c-.073.115-.143.23-.213.346l-.003.004c-.501-.9-.868-1.873-1.126-2.866V3h-2.428v5.235c0 2.424-.86 4.423-2.084 5.692-.266-.473-.47-.994-.595-1.55l-.598-2.7h-2.37v3.224c0 1.578-.877 2.62-2.219 2.62s-2.22-1.042-2.22-2.62V7.6H.5v3.224c0 2.805 1.68 4.948 4.072 4.948 1.758 0 3.097-.918 3.827-2.292.533.898 1.203 1.72 2.027 2.432.135.115.276.222.416.331l.268.203.256.182.006.004.027.019c.01.007.02.013.031.02.562.382 1.17.677 1.8.88.004.002.008.002.012.004.066.021.13.041.196.06.021.006.042.013.063.019.06.016.12.032.18.046l.062.014c.058.012.117.025.176.036l.073.013c.052.009.104.017.157.025l.081.01c.05.006.1.012.151.016l.087.007c.047.004.094.007.142.009l.099.004c.048.001.097.002.145.002 3.235 0 5.88-2.868 5.88-6.408 0-2.585-1.713-4.653-3.994-4.653zm-1.386 8.379c-.217.037-.44.057-.667.057-.434 0-.853-.07-1.248-.2 1.38-1.216 2.405-3.116 2.974-4.974.189-.617.7-1.047 1.326-1.047.776 0 1.564.818 1.564 2.12 0 2.337-1.583 4.231-3.95 4.044z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Services Column -->
+            <div>
+              <h3 class="font-semibold text-lg mb-6 text-white">Services</h3>
+              <ul class="space-y-3">
+                <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Web
+                    Development</a></li>
+                <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">UI/UX
+                    Design</a></li>
+                <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Cloud
+                    Solutions</a></li>
+                <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">AI
+                    Integration</a></li>
+                <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Mobile
+                    Apps</a></li>
+                <li><a href="services.html"
+                    class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Enterprise ERP</a></li>
+              </ul>
+            </div>
+
+            <!-- Company Column -->
+            <div>
+              <h3 class="font-semibold text-lg mb-6 text-white">Company</h3>
+              <ul class="space-y-3">
+                <li><a href="about.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">About
+                    Us</a></li>
+                <li><a href="work.html" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Our
+                    Work</a></li>
+                <li><a href="contact.html"
+                    class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Contact</a></li>
+                <li><a href="privacy-policy.html"
+                    class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Privacy Policy</a></li>
+                <!-- <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Careers</a></li> -->
+                <!-- <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Blog</a></li> -->
+                <!-- <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Case Studies</a> -->
+                </li>
+              </ul>
+            </div>
+
+            <!-- Resources Column -->
+            <!-- <div>
+                  <h3 class="font-semibold text-lg mb-6 text-white">Resources</h3>
+                  <ul class="space-y-3">
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Documentation</a>
+                    </li>
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Help Center</a>
+                    </li>
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">API Reference</a>
+                    </li>
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Status Page</a>
+                    </li>
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Changelog</a>
+                    </li>
+                    <li><a href="#" class="text-white/60 hover:text-[#007BFF] transition-colors text-sm">Security</a></li>
+                  </ul>
+                </div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10">
+        <div class="container mx-auto px-6 py-6 md:pl-56">
+          <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+              <p class="text-white/60 text-sm">© 2025 Prismabit. All rights reserved.</p>
+              <div class="flex items-center space-x-1 text-white/40 text-xs">
+                <span>Built with</span>
+                <svg class="w-3 h-3 text-red-500 mx-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>in Guwahati</span>
+              </div>
+            </div>
+            <!-- <div class="flex flex-wrap justify-center lg:justify-end items-center space-x-6">
+                <a href="#" class="text-white/60 hover:text-[#007BFF] text-sm transition-colors">Privacy Policy</a>
+                <a href="#" class="text-white/60 hover:text-[#007BFF] text-sm transition-colors">Terms of Service</a>
+                <a href="#" class="text-white/60 hover:text-[#007BFF] text-sm transition-colors">Cookie Policy</a>
+              </div> -->
+          </div>
+        </div>
+      </div>
+  </footer>
+
+  <!-- ========= 6) WhatsApp Floating Button START ========== -->
+  <a href="https://wa.me/916003543005" target="_blank" rel="noopener noreferrer" class="whatsapp-fab group hidden"
+    aria-label="Chat on WhatsApp">
+    <svg class="w-6 h-6 text-white transition-all duration-300 group-hover:scale-110" fill="currentColor"
+      viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+    </svg>
+  </a>
+  <!-- =========== 6) WhatsApp Floating Button END =========== -->
+</body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+
+  function submit() {
+
+    // Show modal first
+    $('#success-modal').addClass('show');
+
+    // Get form data
+    var firstname = $('#firstname').val();
+    var lastname = $('#lastname').val();
+    var email = $('#email').val();
+    var message = $('#message').val();
+    const loader = $('#loader');
+    const success = $('#success');
+    // Reset UI state
+    loader.show();
+    success.addClass('hidden');
+
+    // 🔁 Send data via AJAX
+    $.ajax({
+      type: 'POST',
+      url: 'api/digitalAudit.php',
+      data: {
+        firstname: firstname,
+        lastname: lastname,
+
+        email: email,
+
+        message: message
+      },
+      dataType: 'JSON',
+      success: function (response) {
+        console.log(response); // ✅ Debug log
+
+        if (response.success == true) {
+          // Wait 1.5s → hide loader → show success icon
+          setTimeout(() => {
+            loader.hide();
+            success.removeClass('hidden');
+
+            // Wait 2s more → hide modal completely
+            setTimeout(() => {
+              $('#success-modal').removeClass('show');
+            }, 2000);
+          	window.location.reload();
+
+          }, 1500);
+
+        } else {
+          // ❌ Server responded but failed
+          loader.hide();
+          success.addClass('hidden');
+          alert("Submission failed. Please try again.");
+        }
+      },
+
+    });
+  }
+
+
+
+
+  // Popup Modal JavaScript Functions
+
+  // Function to show the popup
+  function showPopup() {
+    const popup = document.getElementById('popup-modal');
+    if (popup) {
+      popup.classList.add('show');
+      // Prevent body scroll when popup is open
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    const popup = document.getElementById('popup-modal');
+    if (popup) {
+      popup.classList.remove('show');
+      // Restore body scroll when popup is closed
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Close popup when clicking outside the content area
+  function handlePopupBackdropClick(event) {
+    const popup = document.getElementById('popup-modal');
+    const popupContent = document.querySelector('.popup-content');
+
+    if (popup && popupContent && !popupContent.contains(event.target)) {
+      hidePopup();
+    }
+  }
+
+  // Close popup when pressing Escape key
+  function handlePopupKeydown(event) {
+    if (event.key === 'Escape') {
+      hidePopup();
+    }
+  }
+
+  // Initialize popup event listeners when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('popup-modal');
+
+    if (popup) {
+      // Add click event listener to popup backdrop
+      popup.addEventListener('click', handlePopupBackdropClick);
+
+      // Add keydown event listener for Escape key
+      document.addEventListener('keydown', handlePopupKeydown);
+
+      // Auto-show popup after page loads
+      setTimeout(showPopup, 1000); // Shows popup after 1 second
+    }
+  });
+
+  // Optional: Function to trigger popup from other elements
+  function triggerPopup() {
+    showPopup();
+  }
+
+  // Close modal
+  function closeModal() {
+    document.getElementById('success-modal').classList.remove('show');
+  }
+
+  // Close on outside click
+  document.getElementById('success-modal').addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+</script>
+
+</html>

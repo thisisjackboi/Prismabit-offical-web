@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prismabit | Luxury Nail Atelier</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-color: #FDFBF7;
+            /* Cream/Nude */
+            --text-color: #3E2723;
+            /* Dark Brown */
+            --accent-red: #8a1c29;
+            /* Deep Wine Red */
+            --accent-pink: #f4d0d6;
+            /* Soft Blush */
+            --white: #ffffff;
+            --easing: cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+            /* Hide default cursor */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lato', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-red);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent-red);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+
+        /* Hover State for Cursor */
+        body.hovering .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+
+        body.hovering .cursor-dot {
+            background-color: var(--white);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 6%;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--white);
+            /* White for contrast on image */
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--white);
+            /* White links */
+            position: relative;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--white);
+            transition: all 0.4s var(--easing);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            border: 1px solid var(--white);
+            color: var(--white);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.5s var(--easing);
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--white);
+            transition: all 0.5s var(--easing);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--text-color);
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION (FULL WIDTH) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 6%;
+            position: relative;
+            /* High Quality Wide Image */
+            background: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            background-attachment: fixed;
+            /* Parallax feel */
+        }
+
+        /* Dark Overlay for Text Readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 650px;
+        }
+
+        .hero-text h1 {
+            font-size: 5.5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text h1 span {
+            display: block;
+            font-style: italic;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* --- SCROLLING TEXT --- */
+        .marquee {
+            background: var(--accent-red);
+            color: var(--bg-color);
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .track {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .track span {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin: 0 4rem;
+            font-style: italic;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --- SERVICES --- */
+        .services {
+            padding: 8rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title p {
+            color: var(--accent-red);
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 4px;
+            transition: all 0.4s var(--easing);
+            box-shadow: 0 10px 30px rgba(138, 28, 41, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(138, 28, 41, 0.1);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-pink);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .price {
+            display: block;
+            margin-top: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-red);
+        }
+
+        /* --- GALLERY --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            padding: 0 6% 8rem;
+            align-items: center;
+        }
+
+        .gallery-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-imgs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .g-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .g-img:nth-child(2) {
+            margin-top: 3rem;
+        }
+
+        /* --- BOOKING SECTION --- */
+        .booking {
+            background-color: var(--accent-pink);
+            padding: 8rem 6%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .booking-container {
+            background: var(--white);
+            padding: 4rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            z-index: 2;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        input,
+        select {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            font-family: 'Lato', sans-serif;
+            background: transparent;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-bottom-color: var(--accent-red);
+        }
+
+        .submit-btn {
+            padding: 18px 45px;
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            background: transparent;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--accent-red);
+            color: var(--bg-color);
+            padding: 4rem 6%;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .service-list,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="hover-target">
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo hover-trigger">Prismabit.</div>
+        <ul class="nav-links">
+            <li><a href="#services" class="hover-trigger">Treatments</a></li>
+            <li><a href="#gallery" class="hover-trigger">Lookbook</a></li>
+            <li><a href="#booking" class="hover-trigger">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION (Updated with Wide Image) -->
+    <section class="hero">
+        <div class="hero-text" data-aos="fade-up" data-aos-duration="1500">
+            <h1><span>The Art of</span>HANDS &<br>SENSES</h1>
+            <p style="margin-bottom: 2rem; max-width: 450px; opacity: 0.9; font-size: 1.1rem; color: #f0f0f0;">
+                Experience a sanctuary of color. Redefining the nail salon experience with premium organic care and
+                modern minimalism.
+            </p>
+            <a href="#booking" class="btn hover-trigger">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- MARQUEE STRIP -->
+    <div class="marquee">
+        <div class="track">
+            <span>Organic Polish</span>
+            <span>Minimalist Art</span>
+            <span>Luxury Care</span>
+            <span>Sanctuary</span>
+            <span>Organic Polish</span>
+            <span>Minimalist Art</span>
+            <span>Luxury Care</span>
+            <span>Sanctuary</span>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <div class="section-title" data-aos="fade-up">
+            <p>Our Menu</p>
+            <h2>Signature Treatments</h2>
+        </div>
+
+        <div class="service-list">
+            <div class="service-card hover-trigger" data-aos="fade-up" data-aos-delay="0">
+                <h3>The Prismabit Classic</h3>
+                <p style="margin-top: 1rem; opacity: 0.7;">Cuticle care, shape, buff, and our signature organic gel
+                    polish application.</p>
+                <span class="price">₹45</span>
+            </div>
+            <div class="service-card hover-trigger" data-aos="fade-up" data-aos-delay="100">
+                <h3>Velvet Spa Pedicure</h3>
+                <p style="margin-top: 1rem; opacity: 0.7;">Rose petal soak, sugar scrub exfoliation, massage, and hot
+                    towel finish.</p>
+                <span class="price">₹65</span>
+            </div>
+            <div class="service-card hover-trigger" data-aos="fade-up" data-aos-delay="200">
+                <h3>Minimalist Art</h3>
+                <p style="margin-top: 1rem; opacity: 0.7;">Custom hand-painted designs focused on negative space and
+                    geometry.</p>
+                <span class="price">₹30+</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery">
+        <div class="gallery-text" data-aos="fade-right">
+            <h3>Curated <br>Perfection</h3>
+            <p style="opacity: 0.8; margin-bottom: 2rem;">
+                Our gallery features the latest trends in Korean minimalist design and French sophistication.
+            </p>
+            <a href="#" style="border-bottom: 1px solid var(--accent-red); color: var(--accent-red);"
+                class="hover-trigger">View Instagram</a>
+        </div>
+        <div class="gallery-imgs">
+            <img src="https://images.unsplash.com/photo-1632922267756-9b71242b1592?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="g-img hover-trigger" data-aos="fade-left" alt="Nails">
+            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                class="g-img hover-trigger" data-aos="fade-up" alt="Nails">
+        </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section id="booking" class="booking">
+        <div class="booking-container" data-aos="zoom-in">
+            <h2>Reserve Your Spot</h2>
+            <p style="opacity: 0.7;">Select your treatment and preferred time.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required class="hover-trigger">
+                <input type="email" placeholder="Email Address" required class="hover-trigger">
+                <select class="hover-trigger">
+                    <option>Select Service</option>
+                    <option>Manicure</option>
+                    <option>Pedicure</option>
+                    <option>Nail Art</option>
+                </select>
+                <button type="submit" class="submit-btn hover-trigger" style="cursor: pointer;">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Prismabit.</h2>
+        <p>1025 Boulevard, Beverly Hills, CA</p>
+        <p>+1 (800) 555-0199 | hello@Prismabit-atelier.com</p>
+        <p style="margin-top: 2rem; font-size: 0.7rem;">&copy; 2024 Prismabit Atelier.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 1000 });
+
+        const cursorDot = document.querySelector('[data-cursor-dot]');
+        const cursorOutline = document.querySelector('[data-cursor-outline]');
+        const hoverTriggers = document.querySelectorAll('.hover-trigger');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+        });
+
+        hoverTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => { document.body.classList.add('hovering'); });
+            trigger.addEventListener('mouseleave', () => { document.body.classList.remove('hovering'); });
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            btn.innerHTML = "Confirmed";
+            btn.style.background = "var(--accent-red)";
+            btn.style.color = "white";
+        });
+    </script>
+</body>
+
+</html>

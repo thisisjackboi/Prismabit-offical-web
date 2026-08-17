@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY VAULT | Supercar Specialists</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --accent-color: #3b82f6; /* Electric Cobalt */
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --skew-angle: -3deg; /* The angle of speed */
+        }
+
+        /* --- RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            cursor: crosshair; /* Precision cursor */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 800;
+            font-style: italic; /* Speed */
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { width: 100%; display: block; }
+
+        /* --- PRELOADER --- */
+        .loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--accent-color);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideUp 0.8s ease-in-out 1.5s forwards;
+        }
+        
+        .loader h2 {
+            font-size: 3rem;
+            color: black;
+            animation: blink 0.2s infinite;
+        }
+
+        @keyframes slideUp { to { transform: translateY(-100%); } }
+        @keyframes blink { 0% {opacity:1;} 50% {opacity:0.5;} 100% {opacity:1;} }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 2rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            mix-blend-mode: exclusion;
+        }
+
+        .logo { font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--accent-color); }
+
+        .nav-btn {
+            border: 1px solid white;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .nav-btn:hover { background: white; color: black; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 4%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Motion blur / Neon car image */
+            background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop') center/cover;
+            filter: brightness(0.6);
+            z-index: -1;
+            transform: scale(1.1);
+            animation: drive 20s infinite linear alternate;
+        }
+
+        @keyframes drive { from { transform: scale(1.1); } to { transform: scale(1.2) translateX(-20px); } }
+
+        .hero-content { z-index: 2; max-width: 900px; }
+
+        h1 {
+            font-size: 7vw;
+            margin-bottom: 2rem;
+            -webkit-text-stroke: 2px transparent;
+            background: linear-gradient(to right, #fff, #999);
+            -webkit-background-clip: text;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 2rem;
+        }
+
+        .stat h4 { font-family: 'Unbounded'; font-size: 1.5rem; color: var(--accent-color); }
+        .stat p { font-size: 0.8rem; color: #ccc; }
+
+        /* --- MARQUEE (The "Ticker") --- */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: var(--accent-color);
+            padding: 1rem 0;
+            transform: skewY(var(--skew-angle)) translateY(-20px);
+            z-index: 10;
+            position: relative;
+        }
+
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 15s linear infinite;
+        }
+
+        .ticker-item {
+            font-family: 'Unbounded';
+            font-size: 2rem;
+            font-weight: 900;
+            color: black;
+            padding: 0 2rem;
+            font-style: italic;
+        }
+
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- FEATURED INVENTORY --- */
+        .inventory {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            padding: 0 4% 4rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .section-header h2 { font-size: 4rem; }
+        .bg-text {
+            font-size: 15vw;
+            position: absolute;
+            top: 0; right: 0;
+            opacity: 0.05;
+            font-family: 'Unbounded';
+            font-style: italic;
+            pointer-events: none;
+            line-height: 0.8;
+            z-index: 0;
+        }
+
+        /* Speed Cards */
+        .car-card {
+            width: 100%;
+            height: 80vh; /* Full screen height cards */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Text on right */
+            border-bottom: 1px solid #222;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .car-bg {
+            position: absolute;
+            top: 0; left: 0; width: 60%; /* Image takes left side */
+            height: 100%;
+            object-fit: cover;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Slanted Cut */
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .car-card:hover .car-bg {
+            filter: grayscale(0%);
+            width: 65%;
+        }
+
+        .car-details {
+            width: 40%;
+            padding: 4rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .car-title { font-size: 3rem; margin-bottom: 1rem; }
+        .price-tag {
+            font-size: 2rem;
+            color: var(--accent-color);
+            font-family: 'Unbounded';
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec-box { border-left: 2px solid var(--accent-color); padding-left: 1rem; }
+        .spec-label { font-size: 0.7rem; color: #888; display: block; margin-bottom: 5px; }
+        .spec-value { font-size: 1.2rem; font-weight: 700; }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 15px 40px;
+            font-weight: 700;
+            font-family: 'Unbounded';
+            font-style: italic;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-color);
+            transform: translateX(10px);
+            color: white;
+        }
+
+        /* Alternate Layout for 2nd card */
+        .car-card.alt { justify-content: flex-start; }
+        .car-card.alt .car-bg {
+            left: auto; right: 0;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* --- TECH/SERVICES --- */
+        .services {
+            background: var(--surface-color);
+            padding: 8rem 4%;
+            transform: skewY(var(--skew-angle));
+            margin: 5rem 0;
+        }
+
+        .services-content { transform: skewY(3deg); /* Counter skew text */ }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #333; /* For grid lines */
+            border: 1px solid #333;
+        }
+
+        .svc-item {
+            background: var(--surface-color);
+            padding: 3rem;
+            transition: 0.3s;
+        }
+
+        .svc-item:hover { background: #1a1a1a; }
+        .svc-num { font-size: 4rem; font-family: 'Unbounded'; color: #222; margin-bottom: 1rem; }
+        .svc-item:hover .svc-num { color: var(--accent-color); }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 6rem 4%;
+            text-align: center;
+            background: linear-gradient(to top, #111, black);
+        }
+
+        .footer-cta h2 { font-size: 5rem; margin-bottom: 2rem; color: transparent; -webkit-text-stroke: 1px white; transition: 0.5s; }
+        .footer-cta h2:hover { color: white; -webkit-text-stroke: 1px var(--accent-color); cursor: pointer; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            h1 { font-size: 12vw; }
+            .car-card, .car-card.alt { flex-direction: column; height: auto; }
+            .car-bg { position: relative; width: 100%; height: 300px; clip-path: none !important; }
+            .car-details { width: 100%; padding: 2rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div class="loader">
+        <h2>START ENGINE</h2>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">VELOCITY<span>/</span>VAULT</div>
+        <a href="#contact" class="nav-btn">Inquire</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-right" data-aos-duration="1000">STREET<br>LEGAL<br>ADRENALINE</h1>
+            
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                <div class="stat">
+                    <h4>2.4s</h4>
+                    <p>0-60 MPH Avg</p>
+                </div>
+                <div class="stat">
+                    <h4>800+</h4>
+                    <p>Horsepower</p>
+                </div>
+                <div class="stat">
+                    <h4>W16</h4>
+                    <p>Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">SPEED /// PRECISION /// POWER /// VELOCITY ///</div>
+            <div class="ticker-item">SPEED /// PRECISION /// POWER /// VELOCITY ///</div>
+            <div class="ticker-item">SPEED /// PRECISION /// POWER /// VELOCITY ///</div>
+        </div>
+    </div>
+
+    <!-- INVENTORY -->
+    <section class="inventory">
+        <div class="bg-text">FAST</div>
+        <div class="section-header">
+            <h2>THE<br>FLEET</h2>
+            <p style="max-width: 300px; text-align: right; color: #888;">Only the fastest. Only the rarest. Curated for the few.</p>
+        </div>
+
+        <!-- Car 1 -->
+        <div class="car-card" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?q=80&w=2067&auto=format&fit=crop" class="car-bg" alt="Lamborghini">
+            <div class="car-details">
+                <h3 class="car-title">Lamborghini<br>Huracán STO</h3>
+                <span class="price-tag">$345,000</span>
+                <div class="specs-grid">
+                    <div class="spec-box"><span class="spec-label">Engine</span><span class="spec-value">5.2L V10</span></div>
+                    <div class="spec-box"><span class="spec-label">Power</span><span class="spec-value">630 HP</span></div>
+                    <div class="spec-box"><span class="spec-label">0-60</span><span class="spec-value">2.6s</span></div>
+                    <div class="spec-box"><span class="spec-label">Drivetrain</span><span class="spec-value">RWD</span></div>
+                </div>
+                <a href="#" class="cta-btn">VIEW SPECS</a>
+            </div>
+        </div>
+
+        <!-- Car 2 (Alt Layout) -->
+        <div class="car-card alt" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1544614471-60aa559a3c7b?q=80&w=2070&auto=format&fit=crop" class="car-bg" alt="McLaren">
+            <div class="car-details">
+                <h3 class="car-title">McLaren<br>720S Spider</h3>
+                <span class="price-tag">$290,000</span>
+                <div class="specs-grid">
+                    <div class="spec-box"><span class="spec-label">Engine</span><span class="spec-value">4.0L V8 TT</span></div>
+                    <div class="spec-box"><span class="spec-label">Power</span><span class="spec-value">710 HP</span></div>
+                    <div class="spec-box"><span class="spec-label">0-60</span><span class="spec-value">2.8s</span></div>
+                    <div class="spec-box"><span class="spec-label">Top Speed</span><span class="spec-value">212 MPH</span></div>
+                </div>
+                <a href="#" class="cta-btn">VIEW SPECS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (Skewed) -->
+    <section class="services">
+        <div class="services-content">
+            <div class="grid-3">
+                <div class="svc-item" data-aos="zoom-in">
+                    <div class="svc-num">01</div>
+                    <h3>Sourcing</h3>
+                    <p style="color: #888; margin-top: 1rem;">We find the unfindable. Hypercars, limited runs, and 1-of-1 specs.</p>
+                </div>
+                <div class="svc-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="svc-num">02</div>
+                    <h3>Tuning</h3>
+                    <p style="color: #888; margin-top: 1rem;">In-house stage 1 & 2 tuning for maximum output and track capability.</p>
+                </div>
+                <div class="svc-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="svc-num">03</div>
+                    <h3>Logistics</h3>
+                    <p style="color: #888; margin-top: 1rem;">Enclosed transport worldwide. Your asset arrives spotless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-cta">
+            <p style="color: var(--accent-color); font-weight: 700; margin-bottom: 1rem;">READY TO DRIVE?</p>
+            <h2>GET THE KEYS</h2>
+            <form style="max-width: 500px; margin: 3rem auto; display: flex; gap: 10px;">
+                <input type="email" placeholder="ENTER EMAIL" style="flex: 1; padding: 15px; background: #222; border: 1px solid #333; color: white; font-family: 'Space Grotesk';">
+                <button class="cta-btn" style="border: none; cursor: pointer;">GO</button>
+            </form>
+            <p style="color: #444; font-size: 0.7rem;">&copy; 2024 VELOCITY VAULT INC. // MIAMI // TOKYO // DUBAI</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 100 });
+
+        // Simple button interaction
+        const btn = document.querySelector('form button');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            btn.innerText = "SENT";
+            btn.style.background = "#222";
+            btn.style.color = "white";
+        });
+    </script>
+</body>
+</html>

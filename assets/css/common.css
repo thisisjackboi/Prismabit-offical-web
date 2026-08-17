@@ -1,0 +1,506 @@
+/* ==========================================================================
+   Base & Global Styles
+   ========================================================================== */
+:root {
+  --primary-color: #0b0b0b;
+  --secondary-color: #ffffff;
+  --tertiary-color: #007BFF;
+  --text-primary: #ffffff;
+  --text-secondary: #CCD0CF;
+  --text-muted: #9BA8AB;
+  --border-color: rgba(255, 255, 255, 0.2);
+  --bg-overlay: rgba(16, 16, 16, 0.8);
+  --floating-card-bg: #1a1a1a;
+  --floating-card-border: #333333;
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Animations & Transitions
+   ========================================================================== */
+
+/* Keyframes for fading in content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#main-content {
+  opacity: 0;
+  animation: fadeIn 0.8s 0.2s both;
+}
+
+/* Class-based animation for elements that fade in as you scroll to them */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Service card scroll animation */
+.service-card-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.service-card-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card-scroll:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.service-card-scroll:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.service-card-scroll:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.service-card-scroll:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* Helper class to create gradient text */
+.gradient-text {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Parallax Zoom Effect for Index Page
+   ========================================================================== */
+
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Parallax zoom effect */
+.zoom-parallax {
+  transform-origin: center center;
+  transition: transform 0.1s ease-out;
+}
+
+/* Enhanced 3D container for parallax */
+#threejs-container.parallax-enhanced {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Service card slide-in animation */
+#services-sticky-parent {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#services-sticky-parent.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   Header & Navigation Styles
+   ========================================================================== */
+
+#header-nav {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* --- Interactive Logo --- */
+/* 3D effect on hover */
+#header-logo {
+  perspective: 1000px;
+}
+
+#header-logo svg {
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+#header-logo:hover svg {
+  transform: rotateY(180deg) rotateX(15deg);
+}
+
+#header-dispersion {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#header-logo:hover #header-dispersion {
+  opacity: 0.6;
+}
+
+#header-logo:hover #header-prism-left {
+  transform: translateX(-1px) rotateY(-5deg);
+}
+
+#header-logo:hover #header-prism-right {
+  transform: translateX(1px) rotateY(5deg);
+}
+
+/* --- Rainbow Wordmark Animation --- */
+/* Keyframes for the shifting rainbow gradient and the glowing pulse effect */
+@keyframes rainbow-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.8),
+      0 0 12px rgba(0, 123, 255, 0.5),
+      0 0 24px rgba(0, 123, 255, 0.45);
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 1),
+      0 0 22px rgba(0, 123, 255, 0.6),
+      0 0 40px rgba(0, 123, 255, 0.55);
+  }
+}
+
+#header-wordmark {
+  display: inline-flex;
+  gap: 0;
+  line-height: 1;
+}
+
+/* Individual letters of the wordmark */
+.rainbow-letter {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: var(--secondary-color);
+  transition: transform .18s ease, filter .18s ease, color .18s ease;
+  will-change: transform, filter;
+}
+
+/* The hover state that triggers the rainbow animation */
+.rainbow-letter:hover {
+  color: transparent;
+  background-image: linear-gradient(90deg,
+      #ff0033, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ea, #ff0033);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: rainbow-shift 1.2s linear infinite, glow-pulse 1.2s ease-in-out infinite;
+  transform: translateY(-1px) scale(1.06);
+  cursor: pointer;
+}
+
+/* --- Navigation Links --- */
+.nav-link {
+  position: relative;
+  padding-bottom: 6px;
+  /* Add some space for the line */
+  transition: color 0.3s ease;
+}
+
+/* The underline that appears on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--tertiary-color);
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Floating Action Buttons
+   ========================================================================== */
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.whatsapp-fab:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #2EE069 0%, #1A9B8A 100%);
+}
+
+.whatsapp-fab svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Subtle Grain Effect */
+.grain-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.015) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.018) 0%, transparent 50%),
+    radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.012) 0%, transparent 50%),
+    radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.016) 0%, transparent 50%);
+  background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px, 220px 220px;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Cosmic background */
+.cosmic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #eee, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 15s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+  opacity: 1;
+}
+
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  background-size: 400px 400px;
+  animation-delay: 3s;
+  animation-duration: 12s;
+  opacity: 0.8;
+}
+
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  background-size: 600px 600px;
+  animation-delay: 5s;
+  animation-duration: 18s;
+  opacity: 0.6;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(2.5);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+/* ==========================================================================
+   Career Application Form
+   ========================================================================== */
+
+.career-form {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(0, 123, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.file-upload-wrapper {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.file-upload-wrapper:hover {
+  border-color: rgba(0, 123, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.file-upload-wrapper input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #007BFF;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+select.form-input option {
+  background-color: #1a1a1a;
+  color: white;
+}
