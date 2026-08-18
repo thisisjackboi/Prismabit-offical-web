@@ -251,4 +251,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // =================================================================
+  // --- MOBILE NAVIGATION MENU TOGGLE ---
+  // =================================================================
+  // Handles the hamburger / close icon toggle and slide-down mobile drawer
+  // for all pages. Works with #mobile-menu-button, #mobile-menu,
+  // #menu-open-icon, and #menu-close-icon.
+  const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenuEl  = document.getElementById('mobile-menu');
+  const menuOpenIcon  = document.getElementById('menu-open-icon');
+  const menuCloseIcon = document.getElementById('menu-close-icon');
+
+  if (mobileMenuBtn && mobileMenuEl) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenuEl.classList.contains('hidden');
+      if (isOpen) {
+        // Close
+        mobileMenuEl.classList.add('hidden');
+        menuOpenIcon?.classList.remove('hidden');
+        menuCloseIcon?.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        // Open
+        mobileMenuEl.classList.remove('hidden');
+        menuOpenIcon?.classList.add('hidden');
+        menuCloseIcon?.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close mobile menu when clicking a link inside it
+    mobileMenuEl.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuEl.classList.add('hidden');
+        menuOpenIcon?.classList.remove('hidden');
+        menuCloseIcon?.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenuEl.contains(e.target)) {
+        mobileMenuEl.classList.add('hidden');
+        menuOpenIcon?.classList.remove('hidden');
+        menuCloseIcon?.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
 });

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Flagship Digital Products & Software Platforms | Prismabit</title>
   <meta name="description"
     content="Explore Prismabit's enterprise software products: DOOH Advertising Platform, Service Booking App, School Management ERP, and Smart Attendance Management App." />
@@ -60,28 +60,28 @@
 
   <style>
     /* ==========================================================================
-       Products Custom Styles
+       Products Custom Styles (Mobile Optimized)
        ========================================================================== */
     .hero-products-glow {
       position: absolute;
-      top: 10%;
+      top: 5%;
       left: 50%;
       transform: translateX(-50%);
-      width: 750px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(0, 123, 255, 0.18) 0%, rgba(34, 211, 238, 0.08) 40%, rgba(11, 11, 11, 0) 70%);
+      width: min(750px, 95vw);
+      height: min(450px, 60vw);
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.22) 0%, rgba(34, 211, 238, 0.1) 40%, rgba(11, 11, 11, 0) 70%);
       pointer-events: none;
       z-index: 1;
     }
 
     .product-hero-badge {
-      background: rgba(0, 123, 255, 0.1);
-      border: 1px solid rgba(0, 123, 255, 0.3);
+      background: rgba(0, 123, 255, 0.12);
+      border: 1px solid rgba(0, 123, 255, 0.35);
       backdrop-filter: blur(10px);
     }
 
     .product-card {
-      background: linear-gradient(180deg, rgba(26, 26, 26, 0.8) 0%, rgba(16, 16, 16, 0.95) 100%);
+      background: linear-gradient(180deg, rgba(26, 26, 26, 0.85) 0%, rgba(14, 14, 14, 0.98) 100%);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
@@ -101,9 +101,9 @@
     }
 
     .product-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       border-color: rgba(0, 123, 255, 0.35);
-      box-shadow: 0 20px 40px -15px rgba(0, 123, 255, 0.15);
+      box-shadow: 0 20px 40px -15px rgba(0, 123, 255, 0.18);
     }
 
     .product-card:hover::before {
@@ -117,26 +117,25 @@
     }
 
     .feature-pill:hover {
-      background: rgba(0, 123, 255, 0.1);
-      border-color: rgba(0, 123, 255, 0.3);
-      color: #ffffff;
+      background: rgba(0, 123, 255, 0.12);
+      border-color: rgba(0, 123, 255, 0.35);
     }
 
     .tech-tag {
       background: rgba(34, 211, 238, 0.08);
-      border: 1px solid rgba(34, 211, 238, 0.2);
+      border: 1px solid rgba(34, 211, 238, 0.25);
       color: #22D3EE;
     }
 
     .product-preview-box {
-      background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.12), rgba(11, 11, 11, 0.95));
+      background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.14), rgba(11, 11, 11, 0.96));
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Modal Animation */
+    /* Modal Animation & Touch Optimizations */
     .modal-backdrop {
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(10px);
       transition: opacity 0.3s ease;
     }
 
@@ -144,20 +143,17 @@
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
 
-    /* Pulse Glow */
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-    }
-
-    .pulse-glow {
-      animation: pulseGlow 4s infinite ease-in-out;
+    /* Prevent auto-zoom on mobile inputs */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
     }
 
     /* Custom scroll for code / preview blocks */
     .custom-scroll::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.2);
@@ -166,14 +162,14 @@
   </style>
 </head>
 
-<body class="bg-[#0b0b0b] text-white selection:bg-[#007BFF] selection:text-white">
+<body class="bg-[#0b0b0b] text-white selection:bg-[#007BFF] selection:text-white antialiased overflow-x-hidden">
 
   <!-- ============= Header Navigation START ================ -->
   <header id="header-nav"
     class="fixed top-0 left-0 right-0 z-40 bg-[#0b0b0b]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-    <nav class="container mx-auto flex justify-between items-center p-6">
+    <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6 py-4 sm:py-5">
       <a href="index.html?nosplash=true" id="header-logo" class="flex items-center space-x-2 group">
-        <div class="w-8 h-8 relative">
+        <div class="w-8 h-8 relative flex-shrink-0">
           <div id="header-dispersion"
             class="absolute inset-[-4px] dispersion-glow opacity-0 transition-opacity duration-300"></div>
           <svg viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
@@ -197,20 +193,19 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <div class="hidden md:flex space-x-8 text-white items-center">
+            <div class="hidden md:flex space-x-8 text-white items-center">
         <a href="work.html" class="nav-link hover:text-[#007BFF] transition-colors">Work</a>
         <a href="services.html" class="nav-link hover:text-[#007BFF] transition-colors">Services</a>
-        <a href="products.html" class="nav-link text-[#007BFF] font-semibold transition-colors">Products</a>
+        <a href="products.html" class="nav-link text-[#007BFF] font-bold transition-colors">Products</a>
         <a href="pricing-plans.html" class="nav-link hover:text-[#007BFF] transition-colors">Plans</a>
         <a href="free-digital-audit-guwahati.html" class="nav-link hover:text-[#007BFF] transition-colors">Free Audit</a>
         <a href="about.html" class="nav-link hover:text-[#007BFF] transition-colors">About</a>
         <a href="careers.html" class="nav-link hover:text-[#007BFF] transition-colors">Careers</a>
         <a href="contact.html" class="nav-link hover:text-[#007BFF] transition-colors">Contact</a>
       </div>
-
-      <!-- Mobile Menu Button -->
+      <!-- Mobile menu button -->
       <div class="md:hidden flex items-center">
-        <button id="mobile-menu-button" class="text-white hover:text-[#007BFF] focus:outline-none"
+        <button id="mobile-menu-button" class="text-white hover:text-[#007BFF] focus:outline-none p-2 rounded-lg hover:bg-white/5"
           aria-label="Toggle mobile menu" aria-expanded="false">
           <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -221,52 +216,51 @@
         </button>
       </div>
     </nav>
-
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#0b0b0b] border-t border-white/10">
-      <div class="px-6 py-4 space-y-2">
-        <a href="work.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Work</a>
-        <a href="services.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Services</a>
-        <a href="products.html" class="block py-2 px-3 rounded-lg text-base font-medium text-[#007BFF] bg-white/5 font-semibold">Products</a>
-        <a href="pricing-plans.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Plans</a>
-        <a href="free-digital-audit-guwahati.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Free Audit</a>
-        <a href="about.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">About</a>
-        <a href="careers.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Careers</a>
-        <a href="contact.html" class="block py-2 px-3 rounded-lg text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0a0a0a] border-t border-white/10 shadow-xl">
+      <div class="px-4 py-4 space-y-1">
+        <a href="work.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Work</a>
+        <a href="services.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Services</a>
+        <a href="products.html" class="block py-2.5 px-3 rounded-md text-base font-medium bg-white/10 text-[#007BFF]">Products</a>
+        <a href="pricing-plans.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Plans</a>
+        <a href="free-digital-audit-guwahati.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Free Audit</a>
+        <a href="about.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">About</a>
+        <a href="careers.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Careers</a>
+        <a href="contact.html" class="block py-2.5 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Contact</a>
       </div>
     </div>
   </header>
   <!-- ============= Header Navigation END ================ -->
 
-  <main id="main-content" class="pt-24 relative overflow-hidden">
+  <main id="main-content" class="pt-20 sm:pt-24 relative overflow-hidden">
     <!-- Cosmic Hero Glow -->
     <div class="hero-products-glow"></div>
 
     <!-- =================================================================
          1) HERO SECTION
          ================================================================= -->
-    <section class="py-20 sm:py-28 text-center container mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full product-hero-badge text-sm font-medium text-[#22D3EE] mb-6 reveal-on-scroll">
+    <section class="py-14 sm:py-24 text-center container mx-auto px-4 sm:px-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full product-hero-badge text-xs sm:text-sm font-medium text-[#22D3EE] mb-6 reveal-on-scroll">
         <span class="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse"></span>
         Prismabit Enterprise Software Suite
       </div>
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 reveal-on-scroll" style="transition-delay: 100ms;">
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-5 sm:mb-6 leading-tight reveal-on-scroll" style="transition-delay: 100ms;">
         Purpose-Built Products.<br />
         <span class="bg-gradient-to-r from-[#007BFF] via-[#22D3EE] to-[#A855F7] bg-clip-text text-transparent">Engineered for Scale.</span>
       </h1>
-      <p class="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10 reveal-on-scroll" style="transition-delay: 200ms;">
-        From real-time digital out-of-home screen networks to seamless appointment booking and institutional ERPs — discover our suite of ready-to-deploy software products tailored for modern enterprises.
+      <p class="text-base sm:text-lg lg:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-10 reveal-on-scroll px-2" style="transition-delay: 200ms;">
+        From real-time digital out-of-home screen networks to on-demand service dispatch and campus ERPs — discover our suite of ready-to-deploy software platforms.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal-on-scroll" style="transition-delay: 300ms;">
+      <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto reveal-on-scroll" style="transition-delay: 300ms;">
         <a href="#products-list"
-          class="px-8 py-3.5 bg-[#007BFF] hover:bg-[#0056b3] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#007BFF]/25 flex items-center gap-2">
+          class="px-7 py-3.5 bg-[#007BFF] hover:bg-[#0056b3] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#007BFF]/25 flex items-center justify-center gap-2 text-center">
           Explore Products
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </a>
         <button onclick="openDemoModal('DOOH Platform')"
-          class="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/15 transition-all duration-300 backdrop-blur-sm flex items-center gap-2">
+          class="px-7 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/15 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 text-center">
           Request a Live Demo
           <svg class="w-4 h-4 text-[#22D3EE]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -275,22 +269,22 @@
       </div>
 
       <!-- Quick Metrics Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-20 pt-10 border-t border-white/10 reveal-on-scroll">
-        <div class="text-center">
-          <div class="text-3xl lg:text-4xl font-extrabold text-[#22D3EE]">99.9%</div>
-          <div class="text-xs sm:text-sm text-white/50 mt-1 uppercase tracking-wider">Uptime Reliability</div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10 reveal-on-scroll">
+        <div class="p-3 bg-white/[0.02] rounded-xl border border-white/5 sm:border-0 sm:bg-transparent">
+          <div class="text-2xl sm:text-4xl font-extrabold text-[#22D3EE]">99.9%</div>
+          <div class="text-[11px] sm:text-xs text-white/50 mt-1 uppercase tracking-wider">Uptime Reliability</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl lg:text-4xl font-extrabold text-white">4+</div>
-          <div class="text-xs sm:text-sm text-white/50 mt-1 uppercase tracking-wider">Flagship Platforms</div>
+        <div class="p-3 bg-white/[0.02] rounded-xl border border-white/5 sm:border-0 sm:bg-transparent">
+          <div class="text-2xl sm:text-4xl font-extrabold text-white">4+</div>
+          <div class="text-[11px] sm:text-xs text-white/50 mt-1 uppercase tracking-wider">Flagship Platforms</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl lg:text-4xl font-extrabold text-[#007BFF]">100K+</div>
-          <div class="text-xs sm:text-sm text-white/50 mt-1 uppercase tracking-wider">Transactions Handled</div>
+        <div class="p-3 bg-white/[0.02] rounded-xl border border-white/5 sm:border-0 sm:bg-transparent">
+          <div class="text-2xl sm:text-4xl font-extrabold text-[#007BFF]">100K+</div>
+          <div class="text-[11px] sm:text-xs text-white/50 mt-1 uppercase tracking-wider">Transactions Handled</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl lg:text-4xl font-extrabold text-[#A855F7]">24/7</div>
-          <div class="text-xs sm:text-sm text-white/50 mt-1 uppercase tracking-wider">Enterprise Support</div>
+        <div class="p-3 bg-white/[0.02] rounded-xl border border-white/5 sm:border-0 sm:bg-transparent">
+          <div class="text-2xl sm:text-4xl font-extrabold text-[#A855F7]">24/7</div>
+          <div class="text-[11px] sm:text-xs text-white/50 mt-1 uppercase tracking-wider">Enterprise Support</div>
         </div>
       </div>
     </section>
@@ -298,96 +292,96 @@
     <!-- =================================================================
          2) PRODUCTS SHOWCASE SECTION
          ================================================================= -->
-    <section id="products-list" class="py-16 sm:py-24 container mx-auto px-6 relative z-10 space-y-24">
+    <section id="products-list" class="py-10 sm:py-20 container mx-auto px-4 sm:px-6 relative z-10 space-y-12 sm:space-y-20">
 
       <!-- ================= PRODUCT 1: DOOH PLATFORM ================= -->
-      <div id="dooh-platform" class="product-card rounded-3xl p-8 sm:p-12 lg:p-14 reveal-on-scroll">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div id="dooh-platform" class="product-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <!-- Left Info Column -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#007BFF]/20 text-[#007BFF] border border-[#007BFF]/30">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#007BFF]/20 text-[#007BFF] border border-[#007BFF]/30">
                 Product 01
               </span>
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
                 Digital Out-Of-Home & IoT
               </span>
-              <span class="text-xs text-white/50 italic">(Formerly Brandmaxx App)</span>
+              <span class="text-xs text-white/50 italic w-full sm:w-auto">(Formerly Brandmaxx App)</span>
             </div>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               DOOH Platform
-              <span class="block text-xl sm:text-2xl font-normal text-white/60 mt-2">Next-Gen Digital Screen Network & Programmatic Ad CMS</span>
+              <span class="block text-base sm:text-xl font-normal text-white/60 mt-1.5">Next-Gen Digital Screen Network & Programmatic Ad CMS</span>
             </h2>
 
-            <p class="text-white/80 text-base sm:text-lg leading-relaxed">
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
               Transform static screens and outdoor billboards into smart, revenue-generating digital advertising hubs. DOOH Platform offers centralized cloud management, programmatic ad scheduling, real-time proof-of-play auditing, and telemetry monitoring for networks of any scale.
             </p>
 
             <!-- Key Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Real-Time Screen Sync</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Real-Time Screen Sync</h4>
                 </div>
-                <p class="text-xs text-white/60">Sub-second content push and layout updates across thousands of remote displays.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Sub-second content push and layout updates across thousands of remote displays.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Proof-Of-Play Analytics</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Proof-Of-Play Analytics</h4>
                 </div>
-                <p class="text-xs text-white/60">Tamper-proof playback logs, impression counts, and automated advertiser compliance reports.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Tamper-proof playback logs, impression counts, and automated advertiser compliance reports.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Dynamic Slot Scheduler</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Dynamic Slot Scheduler</h4>
                 </div>
-                <p class="text-xs text-white/60">Geo-targeted, time-of-day, and trigger-based ad campaigns with split-screen multi-zone grids.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Geo-targeted, time-of-day, and trigger-based ad campaigns with split-screen multi-zone grids.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Offline Playback & Auto-Heal</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Offline Playback & Auto-Heal</h4>
                 </div>
-                <p class="text-xs text-white/60">Smart local storage cache ensures uninterrupted media playback even during network dropouts.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Smart local storage cache ensures uninterrupted media playback even during network dropouts.</p>
               </div>
             </div>
 
             <!-- Tech Stack Tags -->
             <div class="pt-2">
-              <div class="text-xs uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
+              <div class="text-[11px] uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
               <div class="flex flex-wrap gap-2">
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Flutter IoT Client</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Node.js Microservices</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">WebSockets & MQTT</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">AWS CloudFront & S3</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Redis Cache</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Flutter IoT Client</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Node.js Microservices</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">WebSockets & MQTT</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">AWS CloudFront & S3</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Redis Cache</span>
               </div>
             </div>
 
             <!-- Actions -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <button onclick="openDemoModal('DOOH Platform')"
-                class="px-6 py-3 bg-[#007BFF] hover:bg-[#0056b3] text-white font-semibold rounded-xl transition-all shadow-md shadow-[#007BFF]/20 flex items-center gap-2">
+                class="px-6 py-3 bg-[#007BFF] hover:bg-[#0056b3] text-white font-semibold rounded-xl transition-all shadow-md shadow-[#007BFF]/20 flex items-center justify-center gap-2 text-sm">
                 Request DOOH Demo
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
               <a href="contact.html"
-                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all">
+                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all text-center text-sm">
                 Custom Integration Inquiry
               </a>
             </div>
@@ -395,32 +389,29 @@
 
           <!-- Right Mockup Preview Column -->
           <div class="lg:col-span-5">
-            <div class="product-preview-box rounded-2xl p-6 shadow-2xl relative">
+            <div class="product-preview-box rounded-2xl p-4 sm:p-6 shadow-2xl relative">
               <!-- Top bar -->
-              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span class="text-xs font-mono text-white/40 ml-2">dooh-control.prismabit.io</span>
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                  <span class="text-[11px] font-mono text-white/40 ml-1">dooh-control.prismabit.io</span>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-green-400 font-mono bg-green-500/10 px-2.5 py-0.5 rounded-full border border-green-500/20">
+                <span class="inline-flex items-center gap-1 text-[11px] text-green-400 font-mono bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
                   <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"></span> 142 Screens Online
                 </span>
               </div>
 
               <!-- Interactive Mock Display Grid -->
-              <div class="space-y-4">
-                <div class="bg-[#0b0b0b]/90 border border-white/10 rounded-xl p-4">
-                  <div class="flex justify-between items-center text-xs text-white/60 mb-2">
+              <div class="space-y-3">
+                <div class="bg-[#0b0b0b]/90 border border-white/10 rounded-xl p-3 sm:p-4">
+                  <div class="flex justify-between items-center text-[11px] text-white/60 mb-2">
                     <span>Active Broadcast Zone #01</span>
-                    <span class="text-[#22D3EE] font-mono">1080x1920 (Vertical LED)</span>
+                    <span class="text-[#22D3EE] font-mono">1080x1920 LED</span>
                   </div>
-                  <div class="h-28 rounded-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-cyan-900/40 border border-blue-500/30 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                      <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                    </div>
-                    <div class="text-center z-10">
+                  <div class="h-24 sm:h-28 rounded-lg bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-cyan-900/40 border border-blue-500/30 flex items-center justify-center relative overflow-hidden">
+                    <div class="text-center z-10 px-2">
                       <div class="text-xs font-bold text-white uppercase tracking-wider">Summer Retail Campaign 2026</div>
                       <div class="text-[10px] text-white/60 mt-0.5">Playing Slot 03 of 12 (0:15 / 0:30)</div>
                     </div>
@@ -428,23 +419,22 @@
                 </div>
 
                 <!-- Telemetry Stats -->
-                <div class="grid grid-cols-2 gap-3">
-                  <div class="bg-white/5 border border-white/5 rounded-lg p-3">
-                    <div class="text-[11px] text-white/50">Total Impressions Today</div>
-                    <div class="text-lg font-bold text-white mt-1">428,910</div>
-                    <div class="text-[10px] text-green-400 mt-0.5">▲ +14.2% vs yesterday</div>
+                <div class="grid grid-cols-2 gap-2.5">
+                  <div class="bg-white/5 border border-white/5 rounded-lg p-2.5 sm:p-3">
+                    <div class="text-[10px] sm:text-[11px] text-white/50">Impressions Today</div>
+                    <div class="text-base sm:text-lg font-bold text-white mt-0.5">428,910</div>
+                    <div class="text-[10px] text-green-400 mt-0.5">▲ +14.2%</div>
                   </div>
-                  <div class="bg-white/5 border border-white/5 rounded-lg p-3">
-                    <div class="text-[11px] text-white/50">Hardware Health</div>
-                    <div class="text-lg font-bold text-[#22D3EE] mt-1">99.8%</div>
-                    <div class="text-[10px] text-white/50 mt-0.5">Avg Temp: 41°C (Optimal)</div>
+                  <div class="bg-white/5 border border-white/5 rounded-lg p-2.5 sm:p-3">
+                    <div class="text-[10px] sm:text-[11px] text-white/50">Hardware Health</div>
+                    <div class="text-base sm:text-lg font-bold text-[#22D3EE] mt-0.5">99.8%</div>
+                    <div class="text-[10px] text-white/50 mt-0.5">Optimal Temp</div>
                   </div>
                 </div>
 
                 <!-- Proof of play snippet -->
-                <div class="bg-[#000000]/60 border border-white/5 rounded-lg p-3 text-xs font-mono text-white/70">
-                  <div class="text-white/40 text-[10px] mb-1">// Proof of Play Blockchain Audit Log</div>
-                  <div class="text-green-400">$ [OK] Screen #084 Play verified: Hash #9a8f2c... (15.00s)</div>
+                <div class="bg-[#000000]/60 border border-white/5 rounded-lg p-2.5 text-[11px] font-mono text-white/70 overflow-x-auto">
+                  <div class="text-green-400">$ [OK] Screen #084 Play verified: #9a8f2c</div>
                 </div>
               </div>
             </div>
@@ -454,92 +444,92 @@
 
 
       <!-- ================= PRODUCT 2: SERVICE BOOKING APP ================= -->
-      <div id="service-booking" class="product-card rounded-3xl p-8 sm:p-12 lg:p-14 reveal-on-scroll">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div id="service-booking" class="product-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <!-- Left Info Column -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#22D3EE]/20 text-[#22D3EE] border border-[#22D3EE]/30">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#22D3EE]/20 text-[#22D3EE] border border-[#22D3EE]/30">
                 Product 02
               </span>
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
                 On-Demand Marketplace & Scheduling
               </span>
             </div>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Service Booking App
-              <span class="block text-xl sm:text-2xl font-normal text-white/60 mt-2">End-to-End Multi-Vendor Booking & Field Staff Dispatch Engine</span>
+              <span class="block text-base sm:text-xl font-normal text-white/60 mt-1.5">End-to-End Multi-Vendor Booking & Field Staff Dispatch Engine</span>
             </h2>
 
-            <p class="text-white/80 text-base sm:text-lg leading-relaxed">
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
               Designed for salon chains, home care providers, repair services, healthcare clinics, and on-demand field professionals. Streamline your appointment workflow with instant slot availability, automated calendar sync, integrated digital payments, and automated WhatsApp booking reminders.
             </p>
 
             <!-- Key Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Smart Slot Calendar</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Smart Slot Calendar</h4>
                 </div>
-                <p class="text-xs text-white/60">Dynamic time slot generation that automatically prevents overbooking and respects staff break hours.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Dynamic time slot generation that automatically prevents overbooking and respects staff hours.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Payment Gateway & Split Payouts</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Payment Gateway & Splits</h4>
                 </div>
-                <p class="text-xs text-white/60">Accept UPI, credit cards, net banking, or cash on delivery with automated vendor commission splits.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Accept UPI, cards, net banking, or COD with automated vendor commission splits.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">WhatsApp & SMS Automation</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">WhatsApp Automation</h4>
                 </div>
-                <p class="text-xs text-white/60">Instant booking confirmations, rescheduling links, and location dispatch alerts right to chat.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Instant booking confirmations, rescheduling links, and location alerts right to chat.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Live Route & Staff Dispatch</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Live GPS Staff Dispatch</h4>
                 </div>
-                <p class="text-xs text-white/60">Real-time GPS tracker showing service technician arrival time, customer location, and work status.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Real-time GPS tracker showing service technician arrival time, customer location, and work status.</p>
               </div>
             </div>
 
             <!-- Tech Stack Tags -->
             <div class="pt-2">
-              <div class="text-xs uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
+              <div class="text-[11px] uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
               <div class="flex flex-wrap gap-2">
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">React Native / Flutter</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Next.js Web Portal</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Node.js / Express</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">PostgreSQL & Prisma</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Razorpay & Stripe API</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">React Native / Flutter</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Next.js Web Portal</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Node.js / Express</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">PostgreSQL & Prisma</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Razorpay & Stripe API</span>
               </div>
             </div>
 
             <!-- Actions -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <button onclick="openDemoModal('Service Booking App')"
-                class="px-6 py-3 bg-[#22D3EE] hover:bg-[#06b6d4] text-black font-bold rounded-xl transition-all shadow-md shadow-[#22D3EE]/20 flex items-center gap-2">
+                class="px-6 py-3 bg-[#22D3EE] hover:bg-[#06b6d4] text-black font-bold rounded-xl transition-all shadow-md shadow-[#22D3EE]/20 flex items-center justify-center gap-2 text-sm">
                 Request Service App Demo
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
               <a href="contact.html"
-                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all">
+                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all text-center text-sm">
                 Book a Solution Call
               </a>
             </div>
@@ -547,52 +537,48 @@
 
           <!-- Right Mockup Preview Column -->
           <div class="lg:col-span-5">
-            <div class="product-preview-box rounded-2xl p-6 shadow-2xl relative">
-              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-[#22D3EE]/20 flex items-center justify-center text-[#22D3EE]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <div class="product-preview-box rounded-2xl p-4 sm:p-6 shadow-2xl relative">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-7 h-7 rounded-full bg-[#22D3EE]/20 flex items-center justify-center text-[#22D3EE]">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
                   <div>
                     <div class="text-xs font-bold text-white">Live Booking Engine</div>
                     <div class="text-[10px] text-white/50">Instant Slot Allocator</div>
                   </div>
                 </div>
-                <span class="text-xs font-mono text-[#22D3EE] bg-[#22D3EE]/10 px-2.5 py-1 rounded-md border border-[#22D3EE]/30">Auto-Confirmed</span>
+                <span class="text-[11px] font-mono text-[#22D3EE] bg-[#22D3EE]/10 px-2 py-0.5 rounded-md border border-[#22D3EE]/30">Auto-Confirmed</span>
               </div>
 
               <!-- Booking Card Simulation -->
-              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-4 space-y-3">
+              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-3 sm:p-4 space-y-2.5">
                 <div class="flex justify-between items-start">
                   <div>
-                    <h4 class="text-sm font-semibold text-white">Premium Home Deep Cleaning</h4>
-                    <p class="text-xs text-white/60">Assigned: Rahul Sharma (Rating 4.9 ★)</p>
+                    <h4 class="text-xs sm:text-sm font-semibold text-white">Home Deep Cleaning</h4>
+                    <p class="text-[11px] text-white/60">Assigned: Rahul S. (4.9 ★)</p>
                   </div>
-                  <span class="text-sm font-bold text-white">₹1,899</span>
+                  <span class="text-xs sm:text-sm font-bold text-white">₹1,899</span>
                 </div>
 
-                <!-- Date & Slot Selector Simulator -->
-                <div class="bg-white/5 rounded-lg p-2.5 text-xs text-white/80 flex items-center justify-between">
-                  <span>📅 Tomorrow, 10:30 AM - 12:30 PM</span>
+                <div class="bg-white/5 rounded-lg p-2 text-[11px] text-white/80 flex items-center justify-between">
+                  <span>📅 Tomorrow, 10:30 AM</span>
                   <span class="text-green-400 font-medium">Slot Reserved</span>
                 </div>
 
-                <!-- Progress Pipeline -->
-                <div class="pt-2">
-                  <div class="flex justify-between text-[11px] text-white/50 mb-1.5">
+                <div class="pt-1.5">
+                  <div class="flex justify-between text-[10px] text-white/50 mb-1">
                     <span>Booked</span>
                     <span class="text-[#22D3EE] font-medium">Staff En Route</span>
-                    <span>Service In Progress</span>
-                    <span>Completed</span>
+                    <span>Done</span>
                   </div>
                   <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                     <div class="w-1/2 h-full bg-gradient-to-r from-[#007BFF] to-[#22D3EE]"></div>
                   </div>
                 </div>
 
-                <div class="bg-green-500/10 border border-green-500/20 rounded-lg p-2.5 flex items-center gap-2 text-xs text-green-400">
-                  <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                  <span>WhatsApp Reminder Delivered to Customer</span>
+                <div class="bg-green-500/10 border border-green-500/20 rounded-lg p-2 flex items-center gap-2 text-[11px] text-green-400">
+                  <span>✓ WhatsApp Confirmation Sent</span>
                 </div>
               </div>
             </div>
@@ -602,92 +588,91 @@
 
 
       <!-- ================= PRODUCT 3: SCHOOL MANAGEMENT APP ================= -->
-      <div id="school-management" class="product-card rounded-3xl p-8 sm:p-12 lg:p-14 reveal-on-scroll">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div id="school-management" class="product-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <!-- Left Info Column -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#A855F7]/20 text-[#A855F7] border border-[#A855F7]/30">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#A855F7]/20 text-[#A855F7] border border-[#A855F7]/30">
                 Product 03
               </span>
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
                 EdTech & Institutional ERP
               </span>
             </div>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               School Management App
-              <span class="block text-xl sm:text-2xl font-normal text-white/60 mt-2">Comprehensive Institutional ERP, Student SIS & Fee Portal</span>
+              <span class="block text-base sm:text-xl font-normal text-white/60 mt-1.5">Comprehensive Institutional ERP, Student SIS & Fee Portal</span>
             </h2>
 
-            <p class="text-white/80 text-base sm:text-lg leading-relaxed">
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
               Modernize schools, colleges, and educational academies with an all-in-one digital operating system. Unify student admissions, automated fee payment gateways, digital gradebooks, examination report cards, timetable scheduling, and transparent parent-teacher communications.
             </p>
 
             <!-- Key Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">360° Student Information System</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">360° Student Information</h4>
                 </div>
-                <p class="text-xs text-white/60">Digital student profiles, medical records, attendance logs, and academic history in one unified view.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Digital student profiles, medical records, attendance logs, and academic history.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Online Fee & Invoice Automation</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Online Fee Automation</h4>
                 </div>
-                <p class="text-xs text-white/60">Automated fee receipts, dues reminders via SMS/WhatsApp, installment plans, and online payment gateway.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Automated fee receipts, dues reminders via WhatsApp, and online payment gateway.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Exam & Gradebook Generator</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Report Card Generator</h4>
                 </div>
-                <p class="text-xs text-white/60">Customizable grading criteria, CBSE/ICSE/State board templates, and single-click PDF report card generation.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Customizable grading criteria and single-click PDF report card generation.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Dedicated Parent Portal</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Dedicated Parent App</h4>
                 </div>
-                <p class="text-xs text-white/60">Mobile app for parents to track daily attendance, homework, bus GPS tracking, and school notices.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Mobile app for parents to track daily attendance, homework, and notices.</p>
               </div>
             </div>
 
             <!-- Tech Stack Tags -->
             <div class="pt-2">
-              <div class="text-xs uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
+              <div class="text-[11px] uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
               <div class="flex flex-wrap gap-2">
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">React & Next.js Admin</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Flutter Parent & Teacher App</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Python Django / FastAPI</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">PostgreSQL Enterprise</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">AWS S3 Document Vault</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">React & Next.js Admin</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Flutter Parent App</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Python FastAPI</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">PostgreSQL Enterprise</span>
               </div>
             </div>
 
             <!-- Actions -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <button onclick="openDemoModal('School Management App')"
-                class="px-6 py-3 bg-[#A855F7] hover:bg-[#9333ea] text-white font-semibold rounded-xl transition-all shadow-md shadow-[#A855F7]/20 flex items-center gap-2">
+                class="px-6 py-3 bg-[#A855F7] hover:bg-[#9333ea] text-white font-semibold rounded-xl transition-all shadow-md shadow-[#A855F7]/20 flex items-center justify-center gap-2 text-sm">
                 Request School ERP Demo
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
               <a href="contact.html"
-                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all">
+                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all text-center text-sm">
                 Custom Campus Deployment
               </a>
             </div>
@@ -695,40 +680,35 @@
 
           <!-- Right Mockup Preview Column -->
           <div class="lg:col-span-5">
-            <div class="product-preview-box rounded-2xl p-6 shadow-2xl relative">
-              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div class="product-preview-box rounded-2xl p-4 sm:p-6 shadow-2xl relative">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div>
                   <div class="text-xs font-bold text-white">St. Mary's Academy Portal</div>
-                  <div class="text-[10px] text-white/50">Academic Session 2026-2027</div>
+                  <div class="text-[10px] text-white/50">Academic Session 2026</div>
                 </div>
-                <span class="text-xs font-mono text-[#A855F7] bg-[#A855F7]/10 px-2.5 py-1 rounded-md border border-[#A855F7]/30">Active Campus</span>
+                <span class="text-[11px] font-mono text-[#A855F7] bg-[#A855F7]/10 px-2 py-0.5 rounded-md border border-[#A855F7]/30">Active Campus</span>
               </div>
 
               <!-- Campus Stat Cards -->
-              <div class="grid grid-cols-2 gap-3 mb-4">
-                <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-3">
+              <div class="grid grid-cols-2 gap-2.5 mb-3">
+                <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-2.5 sm:p-3">
                   <div class="text-[10px] text-white/50">Students Enrolled</div>
-                  <div class="text-xl font-bold text-white mt-0.5">1,480</div>
-                  <div class="text-[10px] text-green-400">96.4% Attendance Today</div>
+                  <div class="text-base sm:text-lg font-bold text-white mt-0.5">1,480</div>
+                  <div class="text-[10px] text-green-400">96.4% Present</div>
                 </div>
-                <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-3">
-                  <div class="text-[10px] text-white/50">Fee Collection (Q2)</div>
-                  <div class="text-xl font-bold text-[#A855F7] mt-0.5">₹42.8 Lakh</div>
+                <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-2.5 sm:p-3">
+                  <div class="text-[10px] text-white/50">Fee Collection</div>
+                  <div class="text-base sm:text-lg font-bold text-[#A855F7] mt-0.5">₹42.8L</div>
                   <div class="text-[10px] text-white/50">92% Collected</div>
                 </div>
               </div>
 
-              <!-- Live Class / Notice simulation -->
-              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-4 space-y-2.5">
+              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-3 space-y-2">
                 <div class="flex justify-between items-center text-xs">
-                  <span class="font-bold text-white">📢 Circular: Annual Science Exhibition</span>
+                  <span class="font-bold text-white text-[11px]">📢 Annual Science Fair</span>
                   <span class="text-[10px] text-white/40">Today</span>
                 </div>
-                <p class="text-xs text-white/60">Sent to 840 Parents via App Notification & SMS.</p>
-                <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-white/70">
-                  <span>Report Cards Generated: <strong>Class 10A (45/45)</strong></span>
-                  <span class="text-[#22D3EE]">Export PDF ↓</span>
-                </div>
+                <p class="text-[11px] text-white/60">Sent to 840 Parents via App Notification.</p>
               </div>
             </div>
           </div>
@@ -737,92 +717,91 @@
 
 
       <!-- ================= PRODUCT 4: ATTENDANCE MANAGEMENT APP ================= -->
-      <div id="attendance-management" class="product-card rounded-3xl p-8 sm:p-12 lg:p-14 reveal-on-scroll">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div id="attendance-management" class="product-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <!-- Left Info Column -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30">
                 Product 04
               </span>
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/80 border border-white/10">
                 AI Biometrics & Workforce Suite
               </span>
             </div>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Attendance Management App
-              <span class="block text-xl sm:text-2xl font-normal text-white/60 mt-2">Smart AI Face-Recognition, Geo-Fencing & Shift Payroll Suite</span>
+              <span class="block text-base sm:text-xl font-normal text-white/60 mt-1.5">Smart AI Face-Recognition, Geo-Fencing & Shift Payroll Suite</span>
             </h2>
 
-            <p class="text-white/80 text-base sm:text-lg leading-relaxed">
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
               Eliminate proxy attendance, buddy punching, and manual spreadsheets. Our AI-driven attendance platform enables touchless facial biometric recognition, GPS-geofenced mobile check-ins, dynamic shift scheduling, automated leave & overtime tracking, and seamless payroll export.
             </p>
 
             <!-- Key Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#10B981]/20 text-[#10B981] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">AI Face Biometrics & Liveness</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">AI Face Biometrics</h4>
                 </div>
-                <p class="text-xs text-white/60">Sub-second 3D face verification with anti-spoofing algorithms preventing photo or video forgery.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Sub-second 3D face verification with anti-spoofing algorithms preventing photo forgery.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">GPS Geofenced Mobile Punch</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">GPS Geofenced Punch</h4>
                 </div>
-                <p class="text-xs text-white/60">Employees can check in only within predefined office or site radius (with Wi-Fi SSID pairing).</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Employees can check in only within predefined office or site radius with Wi-Fi SSID lock.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">Shift Rostering & Overtime</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">Shift Rostering</h4>
                 </div>
-                <p class="text-xs text-white/60">Manage rotational shifts, night allowances, grace minutes, half-days, and automated late penalties.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Manage rotational shifts, night allowances, half-days, and automated late penalties.</p>
               </div>
 
-              <div class="feature-pill p-4 rounded-xl">
-                <div class="flex items-center gap-3 mb-1">
-                  <div class="w-8 h-8 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              <div class="feature-pill p-3.5 rounded-xl">
+                <div class="flex items-center gap-2.5 mb-1">
+                  <div class="w-7 h-7 rounded-lg bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center font-bold flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   </div>
-                  <h4 class="font-bold text-white text-sm">One-Click Payroll Sync</h4>
+                  <h4 class="font-bold text-white text-xs sm:text-sm">One-Click Payroll Sync</h4>
                 </div>
-                <p class="text-xs text-white/60">Export complete monthly timesheets directly into Tally, Zoho Payroll, Keka, or Excel with tax calculations.</p>
+                <p class="text-[11px] sm:text-xs text-white/60">Export monthly timesheets directly into Tally, Zoho Payroll, Keka, or Excel.</p>
               </div>
             </div>
 
             <!-- Tech Stack Tags -->
             <div class="pt-2">
-              <div class="text-xs uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
+              <div class="text-[11px] uppercase font-semibold text-white/40 mb-2">Technology Architecture</div>
               <div class="flex flex-wrap gap-2">
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">TensorFlow Face AI</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Flutter Mobile App</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">FastAPI & Python</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">MongoDB & Redis</span>
-                <span class="tech-tag text-xs font-mono px-3 py-1 rounded-md">Encrypted Cloud Storage</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">TensorFlow Face AI</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">Flutter Mobile App</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">FastAPI & Python</span>
+                <span class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded-md">MongoDB & Redis</span>
               </div>
             </div>
 
             <!-- Actions -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <button onclick="openDemoModal('Attendance Management App')"
-                class="px-6 py-3 bg-[#10B981] hover:bg-[#059669] text-white font-bold rounded-xl transition-all shadow-md shadow-[#10B981]/20 flex items-center gap-2">
+                class="px-6 py-3 bg-[#10B981] hover:bg-[#059669] text-white font-bold rounded-xl transition-all shadow-md shadow-[#10B981]/20 flex items-center justify-center gap-2 text-sm">
                 Request Attendance Demo
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
               <a href="contact.html"
-                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all">
+                class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-medium rounded-xl border border-white/15 transition-all text-center text-sm">
                 Enterprise Quotation
               </a>
             </div>
@@ -830,42 +809,42 @@
 
           <!-- Right Mockup Preview Column -->
           <div class="lg:col-span-5">
-            <div class="product-preview-box rounded-2xl p-6 shadow-2xl relative">
-              <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div class="product-preview-box rounded-2xl p-4 sm:p-6 shadow-2xl relative">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div>
                   <div class="text-xs font-bold text-white">Smart Biometric Console</div>
-                  <div class="text-[10px] text-white/50">HQ Guwahati • Geofence Radius 50m</div>
+                  <div class="text-[10px] text-white/50">Guwahati Office • 50m Radius</div>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-green-400 font-mono bg-green-500/10 px-2.5 py-0.5 rounded-full border border-green-500/20">
+                <span class="inline-flex items-center gap-1 text-[11px] text-green-400 font-mono bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20">
                   ● Geofence Locked
                 </span>
               </div>
 
               <!-- Face Biometric Animation Simulator -->
-              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-4 text-center relative overflow-hidden mb-4">
-                <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 border-2 border-green-400 flex items-center justify-center relative mb-3">
-                  <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="bg-[#0b0b0b] border border-white/10 rounded-xl p-3 sm:p-4 text-center relative overflow-hidden mb-3">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 border-2 border-green-400 flex items-center justify-center relative mb-2">
+                  <svg class="w-8 h-8 sm:w-10 sm:h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div class="absolute inset-0 rounded-full border border-green-400 animate-ping opacity-25"></div>
                 </div>
-                <div class="text-sm font-bold text-white">Face Match Verified (99.4%)</div>
-                <div class="text-xs text-green-400 mt-0.5">Punch-In Recorded: 09:28 AM (On Time)</div>
+                <div class="text-xs sm:text-sm font-bold text-white">Face Match Verified (99.4%)</div>
+                <div class="text-[11px] text-green-400 mt-0.5">Punch-In: 09:28 AM (On Time)</div>
               </div>
 
               <!-- Shift Overview -->
               <div class="grid grid-cols-3 gap-2 text-center text-xs">
                 <div class="bg-white/5 rounded-lg p-2">
                   <div class="text-white/40 text-[10px]">Present</div>
-                  <div class="text-sm font-bold text-green-400 mt-0.5">148</div>
+                  <div class="text-xs sm:text-sm font-bold text-green-400 mt-0.5">148</div>
                 </div>
                 <div class="bg-white/5 rounded-lg p-2">
                   <div class="text-white/40 text-[10px]">Late</div>
-                  <div class="text-sm font-bold text-yellow-400 mt-0.5">4</div>
+                  <div class="text-xs sm:text-sm font-bold text-yellow-400 mt-0.5">4</div>
                 </div>
                 <div class="bg-white/5 rounded-lg p-2">
                   <div class="text-white/40 text-[10px]">On Leave</div>
-                  <div class="text-sm font-bold text-white/70 mt-0.5">6</div>
+                  <div class="text-xs sm:text-sm font-bold text-white/70 mt-0.5">6</div>
                 </div>
               </div>
             </div>
@@ -878,42 +857,42 @@
     <!-- =================================================================
          3) ENTERPRISE ADVANTAGE & COMPARISON
          ================================================================= -->
-    <section class="py-20 bg-[#101010]/60 border-t border-b border-white/10 relative z-10">
-      <div class="container mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Why Enterprises Choose Prismabit Software</h2>
-          <p class="text-white/70 mt-4 text-base sm:text-lg">
+    <section class="py-14 sm:py-20 bg-[#101010]/60 border-t border-b border-white/10 relative z-10">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal-on-scroll">
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Why Enterprises Choose Prismabit Software</h2>
+          <p class="text-white/70 mt-3 text-sm sm:text-base">
             We do not just ship code; we build fully managed, production-tested software platforms tailored to your business goals.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-[#0b0b0b] border border-white/10 p-8 rounded-2xl reveal-on-scroll">
-            <div class="w-12 h-12 rounded-xl bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div class="bg-[#0b0b0b] border border-white/10 p-6 sm:p-8 rounded-2xl reveal-on-scroll">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#007BFF]/20 text-[#007BFF] flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">Enterprise-Grade Security</h3>
-            <p class="text-white/70 text-sm leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Enterprise Security</h3>
+            <p class="text-white/70 text-xs sm:text-sm leading-relaxed">
               End-to-end data encryption, role-based access control (RBAC), automated daily cloud backups, and compliance-ready infrastructure.
             </p>
           </div>
 
-          <div class="bg-[#0b0b0b] border border-white/10 p-8 rounded-2xl reveal-on-scroll" style="transition-delay: 150ms;">
-            <div class="w-12 h-12 rounded-xl bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+          <div class="bg-[#0b0b0b] border border-white/10 p-6 sm:p-8 rounded-2xl reveal-on-scroll" style="transition-delay: 150ms;">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#22D3EE]/20 text-[#22D3EE] flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">100% White-Label & Custom APIs</h3>
-            <p class="text-white/70 text-sm leading-relaxed">
-              Custom branding with your logo, color palette, custom domain name, and modular REST & GraphQL APIs to connect with existing enterprise tools.
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">100% White-Label & Custom APIs</h3>
+            <p class="text-white/70 text-xs sm:text-sm leading-relaxed">
+              Custom branding with your logo, color palette, custom domain name, and modular REST & GraphQL APIs to connect with existing systems.
             </p>
           </div>
 
-          <div class="bg-[#0b0b0b] border border-white/10 p-8 rounded-2xl reveal-on-scroll" style="transition-delay: 300ms;">
-            <div class="w-12 h-12 rounded-xl bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="bg-[#0b0b0b] border border-white/10 p-6 sm:p-8 rounded-2xl reveal-on-scroll" style="transition-delay: 300ms;">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#A855F7]/20 text-[#A855F7] flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">Dedicated Support & SLA</h3>
-            <p class="text-white/70 text-sm leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Dedicated SLA Support</h3>
+            <p class="text-white/70 text-xs sm:text-sm leading-relaxed">
               Guaranteed SLA response times, dedicated account engineering, continuous software maintenance, and real-time server telemetry.
             </p>
           </div>
@@ -924,22 +903,22 @@
     <!-- =================================================================
          4) BOTTOM CTA SECTION
          ================================================================= -->
-    <section class="py-24 text-center container mx-auto px-6 relative z-10">
-      <div class="max-w-4xl mx-auto bg-gradient-to-b from-[#101010] to-[#0b0b0b] border border-white/15 rounded-3xl p-10 sm:p-16 shadow-2xl reveal-on-scroll">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+    <section class="py-14 sm:py-24 text-center container mx-auto px-4 sm:px-6 relative z-10">
+      <div class="max-w-4xl mx-auto bg-gradient-to-b from-[#101010] to-[#0b0b0b] border border-white/15 rounded-2xl sm:rounded-3xl p-6 sm:p-12 lg:p-16 shadow-2xl reveal-on-scroll">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
           Ready to Deploy an Industry-Leading Platform?
         </h2>
-        <p class="text-white/70 text-base sm:text-lg mb-10 max-w-2xl mx-auto">
+        <p class="text-white/70 text-sm sm:text-base lg:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
           Contact our software architects today for a guided product demo, custom feature roadmap, and pilot deployment for your organization.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center items-stretch sm:items-center">
           <button onclick="openDemoModal('DOOH Platform')"
-            class="px-8 py-4 bg-[#007BFF] hover:bg-[#0056b3] text-white font-bold rounded-xl transition-all shadow-xl shadow-[#007BFF]/30 flex items-center gap-2">
+            class="px-7 py-3.5 bg-[#007BFF] hover:bg-[#0056b3] text-white font-bold rounded-xl transition-all shadow-xl shadow-[#007BFF]/30 flex items-center justify-center gap-2 text-sm sm:text-base">
             Schedule a Guided Product Demo
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
           </button>
           <a href="tel:+916003543005"
-            class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/15 transition-all flex items-center gap-2">
+            class="px-7 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/15 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
             <svg class="w-4 h-4 text-[#22D3EE]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             Call: +91 60035 43005
           </a>
@@ -951,34 +930,35 @@
 
 
   <!-- =================================================================
-       INTERACTIVE DEMO REQUEST MODAL (With Full Regex Validations)
+       INTERACTIVE DEMO REQUEST MODAL (Mobile Optimized & Regex Validated)
        ================================================================= -->
-  <div id="demo-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+  <div id="demo-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 hidden">
     <!-- Backdrop -->
     <div class="modal-backdrop absolute inset-0" onclick="closeDemoModal()"></div>
 
     <!-- Modal Content Box -->
-    <div class="modal-dialog relative z-10 w-full max-w-xl bg-[#121212] border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll">
+    <div class="modal-dialog relative z-10 w-full max-w-lg bg-[#141414] border border-white/20 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl max-h-[92vh] overflow-y-auto custom-scroll">
       <!-- Close Button -->
-      <button onclick="closeDemoModal()" class="absolute top-5 right-5 text-white/50 hover:text-white text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+      <button onclick="closeDemoModal()" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl font-bold w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 transition"
+        aria-label="Close modal">
         &times;
       </button>
 
       <!-- Modal Header -->
-      <div class="mb-6">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#22D3EE] bg-[#22D3EE]/10 px-3 py-1 rounded-full border border-[#22D3EE]/20">
+      <div class="mb-5 pr-8">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-[#22D3EE] bg-[#22D3EE]/10 px-2.5 py-1 rounded-full border border-[#22D3EE]/20">
           Live Product Demonstration
         </span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">Request a Product Demo</h3>
-        <p class="text-xs sm:text-sm text-white/60 mt-1">Get an interactive walkthrough with our engineering team.</p>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-2.5">Request a Product Demo</h3>
+        <p class="text-xs sm:text-sm text-white/60 mt-0.5">Get an interactive walkthrough with our engineering team.</p>
       </div>
 
       <!-- Demo Request Form -->
-      <form id="product-demo-form" onsubmit="handleDemoSubmit(event)" novalidate class="space-y-4">
+      <form id="product-demo-form" onsubmit="handleDemoSubmit(event)" novalidate class="space-y-3.5">
         <!-- Product Selector -->
         <div>
           <label for="demo_product" class="block text-xs font-medium text-white/80 mb-1">Select Product *</label>
-          <select id="demo_product" class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+          <select id="demo_product" class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
             <option value="DOOH Platform">DOOH Platform (Screen Management & CMS)</option>
             <option value="Service Booking App">Service Booking & Scheduling App</option>
             <option value="School Management App">School Management ERP & SIS</option>
@@ -987,33 +967,33 @@
         </div>
 
         <!-- Name Fields -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div>
             <label for="demo_firstname" class="block text-xs font-medium text-white/80 mb-1">First Name *</label>
             <input type="text" id="demo_firstname" placeholder="e.g. John"
-              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
             <p id="err_demo_firstname" class="text-red-400 text-xs mt-1 hidden"></p>
           </div>
           <div>
             <label for="demo_lastname" class="block text-xs font-medium text-white/80 mb-1">Last Name *</label>
             <input type="text" id="demo_lastname" placeholder="e.g. Doe"
-              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
             <p id="err_demo_lastname" class="text-red-400 text-xs mt-1 hidden"></p>
           </div>
         </div>
 
         <!-- Email & Phone -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div>
             <label for="demo_email" class="block text-xs font-medium text-white/80 mb-1">Business Email *</label>
             <input type="email" id="demo_email" placeholder="john@company.com"
-              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
             <p id="err_demo_email" class="text-red-400 text-xs mt-1 hidden"></p>
           </div>
           <div>
             <label for="demo_phone" class="block text-xs font-medium text-white/80 mb-1">Phone Number *</label>
             <input type="tel" id="demo_phone" placeholder="9876543210"
-              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+              class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
             <p id="err_demo_phone" class="text-red-400 text-xs mt-1 hidden"></p>
           </div>
         </div>
@@ -1022,23 +1002,23 @@
         <div>
           <label for="demo_company" class="block text-xs font-medium text-white/80 mb-1">Organization / Business Name *</label>
           <input type="text" id="demo_company" placeholder="e.g. Acme Media Corp"
-            class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
+            class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition">
           <p id="err_demo_company" class="text-red-400 text-xs mt-1 hidden"></p>
         </div>
 
         <!-- Message -->
         <div>
-          <label for="demo_message" class="block text-xs font-medium text-white/80 mb-1">Use Case / Specific Questions (Optional)</label>
-          <textarea id="demo_message" rows="3" placeholder="Tell us about your screen network size, number of students, or workforce requirements..."
-            class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-[#007BFF] focus:outline-none transition"></textarea>
+          <label for="demo_message" class="block text-xs font-medium text-white/80 mb-1">Use Case / Notes (Optional)</label>
+          <textarea id="demo_message" rows="2" placeholder="Brief requirements..."
+            class="form-input w-full bg-[#1e1e1e] border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:border-[#007BFF] focus:outline-none transition"></textarea>
         </div>
 
-        <!-- Submission Status Banner -->
-        <div id="demo-form-status" class="hidden p-3.5 rounded-xl text-xs font-medium"></div>
+        <!-- Status Banner -->
+        <div id="demo-form-status" class="hidden p-3 rounded-xl text-xs font-medium"></div>
 
         <!-- Submit Button -->
         <button type="submit" id="demo-submit-btn"
-          class="w-full py-3.5 bg-[#007BFF] hover:bg-[#0056b3] text-white font-bold rounded-xl transition-all shadow-lg shadow-[#007BFF]/25 flex items-center justify-center gap-2">
+          class="w-full py-3.5 bg-[#007BFF] hover:bg-[#0056b3] text-white font-bold rounded-xl transition-all shadow-lg shadow-[#007BFF]/25 flex items-center justify-center gap-2 text-sm sm:text-base">
           <span id="demo-btn-text">Schedule Demo Walkthrough</span>
           <svg id="demo-btn-spinner" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -1069,33 +1049,33 @@
     <!-- Footer Content -->
     <div class="relative z-10 flex flex-col">
       <!-- Let's Talk CTA Section -->
-      <div class="py-20 sm:py-28 flex-1 flex flex-col justify-center">
-        <div class="container mx-auto px-6 text-center">
+      <div class="py-14 sm:py-24 flex-1 flex flex-col justify-center">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
           <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight">
               Let's Build Something Great
             </h2>
-            <p class="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-sm sm:text-lg text-white/80 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your operations with our software products or tailored digital solutions? Let's discuss your requirements.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+            <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center items-center mb-6">
               <a href="contact.html"
-                class="inline-flex items-center px-8 py-3.5 bg-[#007BFF] text-white font-semibold rounded-xl hover:bg-[#0056b3] transition-colors duration-300">
+                class="w-full sm:w-auto inline-flex justify-center items-center px-7 py-3.5 bg-[#007BFF] text-white font-semibold rounded-xl hover:bg-[#0056b3] transition-colors duration-300">
                 Start Your Project
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <a href="mailto:prismabitdigital@gmail.com"
-                class="inline-flex items-center px-8 py-3.5 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300">
+              <a href="mailto:Business@prismabit.co.in"
+                class="w-full sm:w-auto inline-flex justify-center items-center px-7 py-3.5 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                prismabitdigital@gmail.com
+                Business@prismabit.co.in
               </a>
             </div>
-            <p class="text-white/60 text-sm">
+            <p class="text-white/60 text-xs sm:text-sm">
               Response within <span class="text-[#22D3EE] font-semibold">24 hours</span>
             </p>
           </div>
@@ -1104,11 +1084,11 @@
 
       <!-- Footer Links Grid -->
       <div class="border-t border-white/10">
-        <div class="container mx-auto px-6 py-16">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12">
             <!-- Brand Column -->
             <div class="lg:col-span-2">
-              <div class="flex items-center space-x-2 mb-6">
+              <div class="flex items-center space-x-2 mb-4">
                 <div class="w-8 h-8 relative">
                   <svg viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
                     <path d="M13,2l9,13.6L13,22ZM11,2,2,15.6,11,22Z" fill="white" />
@@ -1116,24 +1096,24 @@
                 </div>
                 <span class="font-bold text-xl">Prismabit</span>
               </div>
-              <p class="text-white/60 mb-6 max-w-md leading-relaxed text-sm">
+              <p class="text-white/60 mb-5 max-w-md leading-relaxed text-xs sm:text-sm">
                 Empowering businesses through cutting-edge web applications, ready-to-deploy enterprise SaaS products, AI biometrics, and cloud infrastructure.
               </p>
 
               <!-- Recognitions -->
-              <div class="mt-6 mb-8 flex items-center gap-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                <img src="assets/images/msme.png" alt="MSME Certified" class="h-8 md:h-9 w-auto object-contain" />
-                <img src="assets/images/strtupindia.png" alt="Startup India Recognition" class="h-8 md:h-9 w-auto object-contain" />
+              <div class="mt-4 mb-6 flex items-center gap-5 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img src="assets/images/msme.png" alt="MSME Certified" class="h-7 sm:h-8 w-auto object-contain" />
+                <img src="assets/images/strtupindia.png" alt="Startup India Recognition" class="h-7 sm:h-8 w-auto object-contain" />
               </div>
 
               <!-- Contact Info -->
-              <div class="space-y-2.5 text-xs text-white/60">
-                <div class="flex items-center">
-                  <svg class="w-4 h-4 mr-2.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  <span>Guwahati, Assam, India</span>
+              <div class="space-y-2 text-xs text-white/60">
+                <div class="flex items-start">
+                  <svg class="w-4 h-4 mr-2 text-white/40 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  <span>2nd Floor, Udayan Apartment, Udayan Path, Six Mile, Guwahati, Assam</span>
                 </div>
                 <div class="flex items-center">
-                  <svg class="w-4 h-4 mr-2.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  <svg class="w-4 h-4 mr-2 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   <span>+91 60035 43005</span>
                 </div>
               </div>
@@ -1141,8 +1121,8 @@
 
             <!-- Products Column -->
             <div>
-              <h3 class="font-semibold text-base mb-5 text-white">Our Products</h3>
-              <ul class="space-y-2.5 text-sm">
+              <h3 class="font-semibold text-sm sm:text-base mb-4 text-white">Our Products</h3>
+              <ul class="space-y-2 text-xs sm:text-sm">
                 <li><a href="#dooh-platform" class="text-white/60 hover:text-[#007BFF] transition-colors">DOOH Platform</a></li>
                 <li><a href="#service-booking" class="text-white/60 hover:text-[#007BFF] transition-colors">Service Booking App</a></li>
                 <li><a href="#school-management" class="text-white/60 hover:text-[#007BFF] transition-colors">School Management App</a></li>
@@ -1152,8 +1132,8 @@
 
             <!-- Services Column -->
             <div>
-              <h3 class="font-semibold text-base mb-5 text-white">Services</h3>
-              <ul class="space-y-2.5 text-sm">
+              <h3 class="font-semibold text-sm sm:text-base mb-4 text-white">Services</h3>
+              <ul class="space-y-2 text-xs sm:text-sm">
                 <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors">Web Development</a></li>
                 <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors">UI/UX Design</a></li>
                 <li><a href="services.html" class="text-white/60 hover:text-[#007BFF] transition-colors">Cloud Solutions</a></li>
@@ -1164,8 +1144,8 @@
 
             <!-- Company Column -->
             <div>
-              <h3 class="font-semibold text-base mb-5 text-white">Company</h3>
-              <ul class="space-y-2.5 text-sm">
+              <h3 class="font-semibold text-sm sm:text-base mb-4 text-white">Company</h3>
+              <ul class="space-y-2 text-xs sm:text-sm">
                 <li><a href="about.html" class="text-white/60 hover:text-[#007BFF] transition-colors">About Us</a></li>
                 <li><a href="work.html" class="text-white/60 hover:text-[#007BFF] transition-colors">Our Work</a></li>
                 <li><a href="pricing-plans.html" class="text-white/60 hover:text-[#007BFF] transition-colors">Pricing Plans</a></li>
@@ -1179,9 +1159,9 @@
           </div>
 
           <!-- Bottom copyright bar -->
-          <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-white/50">
+          <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-white/50 gap-2 text-center sm:text-left">
             <p>© 2026 Prismabit. All rights reserved.</p>
-            <p class="mt-2 sm:mt-0">Engineered with precision for ambitious brands.</p>
+            <p>Engineered with precision for ambitious brands.</p>
           </div>
         </div>
       </div>
@@ -1240,10 +1220,12 @@
           mobileMenu.classList.remove('hidden');
           openIcon.classList.add('hidden');
           closeIcon.classList.remove('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'true');
         } else {
           mobileMenu.classList.add('hidden');
           openIcon.classList.remove('hidden');
           closeIcon.classList.add('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'false');
         }
       });
     }
