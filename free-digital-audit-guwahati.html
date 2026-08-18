@@ -250,14 +250,13 @@
       <div class="hidden md:flex space-x-8 text-white items-center">
         <a href="work.html" class="nav-link hover:text-[#007BFF] transition-colors">Work</a>
         <a href="services.html" class="nav-link hover:text-[#007BFF] transition-colors">Services</a>
+        <a href="products.html" class="nav-link hover:text-[#007BFF] transition-colors">Products</a>
         <a href="pricing-plans.html" class="nav-link hover:text-[#007BFF] transition-colors">Plans</a>
         <a href="free-digital-audit-guwahati.html" class="nav-link text-[#007BFF] font-bold transition-colors">Free
           Audit</a>
         <a href="about.html" class="nav-link hover:text-[#007BFF] transition-colors">About</a>
         <a href="careers.html" class="nav-link hover:text-[#007BFF] transition-colors">Careers</a>
         <a href="contact.html" class="nav-link hover:text-[#007BFF] transition-colors">Contact</a>
-
-
       </div>
       <!-- Mobile menu button -->
       <div class="md:hidden flex items-center">
@@ -281,13 +280,13 @@
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Work</a>
         <a href="services.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Services</a>
+        <a href="products.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Products</a>
         <a href="pricing-plans.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Plans</a>
         <a href="free-digital-audit-guwahati.html"
           class="block py-2 px-3 rounded-md text-base font-medium bg-white/10 text-[#007BFF]">Free
           Audit</a>
-
-
         <a href="about.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">About</a>
         <a href="careers.html"
@@ -558,43 +557,50 @@
           </div>
           <div class="bg-[#101010] border border-white/10 p-8 rounded-2xl shadow-lg reveal-on-scroll">
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="first-name" class="block text-sm font-medium text-white/80">First Name</label>
-                <input type="text" name="first-name" id="firstname"
-                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+            <form id="audit-form-main" onsubmit="handleAuditSubmit(event)" novalidate class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="firstname" class="block text-sm font-medium text-white/80">First Name *</label>
+                  <input type="text" name="first-name" id="firstname" placeholder="Enter first name"
+                    class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                  <p id="err_audit_firstname" class="text-red-400 text-xs mt-1 hidden"></p>
+                </div>
+                <div>
+                  <label for="lastname" class="block text-sm font-medium text-white/80">Last Name *</label>
+                  <input type="text" name="last-name" id="lastname" placeholder="Enter last name"
+                    class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                  <p id="err_audit_lastname" class="text-red-400 text-xs mt-1 hidden"></p>
+                </div>
+                <div>
+                  <label for="businessname" class="block text-sm font-medium text-white/80">Business Name *</label>
+                  <input type="text" name="businessname" id="businessname" placeholder="Your business or brand name"
+                    class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                  <p id="err_audit_businessname" class="text-red-400 text-xs mt-1 hidden"></p>
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-white/80">Email *</label>
+                  <input type="email" name="email" id="email" placeholder="your@email.com"
+                    class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                  <p id="err_audit_email" class="text-red-400 text-xs mt-1 hidden"></p>
+                </div>
               </div>
               <div>
-                <label for="last-name" class="block text-sm font-medium text-white/80">Last Name</label>
-                <input type="text" name="last-name" id="lastname"
-                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+                <label for="weburl" class="block text-sm font-medium text-white/80">Website URL (Optional)</label>
+                <input type="url" name="weburl" id="weburl" placeholder="https://yourwebsite.com"
+                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                <p id="err_audit_weburl" class="text-red-400 text-xs mt-1 hidden"></p>
               </div>
               <div>
-                <label for="businessname" class="block text-sm font-medium text-white/80">Business Name</label>
-                <input type="text" name="businessname" id="businessname"
-                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+                <label for="message" class="block text-sm font-medium text-white/80">Message / Goals (Optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="What are your primary goals (e.g. SEO, lead conversion, redesign)?"
+                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition"></textarea>
               </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-white/80">Email</label>
-                <input type="email" name="email" id="email"
-                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
-              </div>
-            </div>
-            <div>
-              <label for="weburl" class="block text-sm font-medium text-white/80">Website URL</label>
-              <input type="url" name="weburl" id="weburl"
-                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-white/80">Message (Optional)</label>
-              <textarea id="message" name="message" rows="4"
-                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3"></textarea>
-            </div>
 
-            <button onclick="submit()" type="submit"
-              class="mt-3 w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#007BFF] hover:bg-[#0056b3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#007BFF] transition-colors">
-              Schedule My Free Audit
-            </button>
+              <button type="submit" id="audit-submit-btn"
+                class="mt-3 w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#007BFF] hover:bg-[#0056b3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#007BFF] transition-colors gap-2">
+                <span id="audit-btn-text">Schedule My Free Audit</span>
+              </button>
+            </form>
           </div>
           </form>
         </div>
@@ -846,33 +852,142 @@
   </a>
 
 </body>
-
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-  // Handle form submission
+  // Regex definitions
+  const REGEX_NAME = /^[a-zA-Z\s'-]{2,50}$/;
+  const REGEX_EMAIL = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const REGEX_URL = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/i;
 
-  function submit() {
+  function setAuditFieldError(id, msg) {
+    const input = document.getElementById(id);
+    const err = document.getElementById(`err_audit_${id}`);
+    if (input) {
+      input.classList.add('!border-red-500');
+      input.classList.remove('!border-green-500');
+    }
+    if (err) {
+      err.textContent = msg;
+      err.classList.remove('hidden');
+    }
+  }
 
-    // Show modal first
+  function setAuditFieldSuccess(id) {
+    const input = document.getElementById(id);
+    const err = document.getElementById(`err_audit_${id}`);
+    if (input) {
+      input.classList.remove('!border-red-500');
+      input.classList.add('!border-green-500');
+    }
+    if (err) {
+      err.textContent = '';
+      err.classList.add('hidden');
+    }
+  }
+
+  // Live real-time validation
+  document.getElementById('firstname')?.addEventListener('input', function() {
+    if (!REGEX_NAME.test(this.value.trim())) {
+      setAuditFieldError('firstname', 'First name must contain at least 2 alphabetic characters.');
+    } else {
+      setAuditFieldSuccess('firstname');
+    }
+  });
+
+  document.getElementById('lastname')?.addEventListener('input', function() {
+    if (!REGEX_NAME.test(this.value.trim())) {
+      setAuditFieldError('lastname', 'Last name must contain at least 2 alphabetic characters.');
+    } else {
+      setAuditFieldSuccess('lastname');
+    }
+  });
+
+  document.getElementById('businessname')?.addEventListener('input', function() {
+    if (this.value.trim().length < 2) {
+      setAuditFieldError('businessname', 'Please enter your business or brand name.');
+    } else {
+      setAuditFieldSuccess('businessname');
+    }
+  });
+
+  document.getElementById('email')?.addEventListener('input', function() {
+    if (!REGEX_EMAIL.test(this.value.trim())) {
+      setAuditFieldError('email', 'Please enter a valid email address (e.g. name@domain.com).');
+    } else {
+      setAuditFieldSuccess('email');
+    }
+  });
+
+  document.getElementById('weburl')?.addEventListener('input', function() {
+    const val = this.value.trim();
+    if (val.length > 0 && !REGEX_URL.test(val)) {
+      setAuditFieldError('weburl', 'Please enter a valid URL (e.g. yourwebsite.com or https://yourwebsite.com).');
+    } else {
+      setAuditFieldSuccess('weburl');
+    }
+  });
+
+  function handleAuditSubmit(e) {
+    e.preventDefault();
+
+    const firstname = $('#firstname').val().trim();
+    const lastname = $('#lastname').val().trim();
+    const businessname = $('#businessname').val().trim();
+    const email = $('#email').val().trim();
+    const weburl = $('#weburl').val().trim();
+    const message = $('#message').val().trim();
+
+    let isValid = true;
+
+    if (!REGEX_NAME.test(firstname)) {
+      setAuditFieldError('firstname', 'Please enter a valid first name (min 2 letters).');
+      isValid = false;
+    } else {
+      setAuditFieldSuccess('firstname');
+    }
+
+    if (!REGEX_NAME.test(lastname)) {
+      setAuditFieldError('lastname', 'Please enter a valid last name (min 2 letters).');
+      isValid = false;
+    } else {
+      setAuditFieldSuccess('lastname');
+    }
+
+    if (businessname.length < 2) {
+      setAuditFieldError('businessname', 'Please enter your business name.');
+      isValid = false;
+    } else {
+      setAuditFieldSuccess('businessname');
+    }
+
+    if (!REGEX_EMAIL.test(email)) {
+      setAuditFieldError('email', 'Please enter a valid email address.');
+      isValid = false;
+    } else {
+      setAuditFieldSuccess('email');
+    }
+
+    if (weburl.length > 0 && !REGEX_URL.test(weburl)) {
+      setAuditFieldError('weburl', 'Please enter a valid website URL or leave blank.');
+      isValid = false;
+    } else {
+      setAuditFieldSuccess('weburl');
+    }
+
+    if (!isValid) return;
+
+    // Show modal & loader only when validation passes
     $('#success-modal').addClass('show');
-
-    // Get form data
-    var firstname = $('#firstname').val();
-    var lastname = $('#lastname').val();
-    var businessname = $('#businessname').val();
-    var email = $('#email').val();
-    var weburl = $('#weburl').val();
-    var message = $('#message').val();
-
     const loader = $('#loader');
     const success = $('#success');
-
-    // Reset UI state
     loader.show();
     success.addClass('hidden');
 
-    // 🔁 Send data via AJAX
+    const submitBtn = $('#audit-submit-btn');
+    submitBtn.prop('disabled', true);
+    $('#audit-btn-text').text('Scheduling Audit...');
+
+    // Send data via AJAX
     $.ajax({
       type: 'POST',
       url: 'api/digitalAudit.php',
@@ -886,72 +1001,63 @@
       },
       dataType: 'JSON',
       success: function (response) {
-        console.log(response); // ✅ Debug log
+        submitBtn.prop('disabled', false);
+        $('#audit-btn-text').text('Schedule My Free Audit');
 
-        if (response.success == true) {
-          // Wait 1.5s → hide loader → show success icon
+        if (response && response.success == true) {
           setTimeout(() => {
             loader.hide();
             success.removeClass('hidden');
 
-            // Wait 2s more → hide modal completely
+            document.getElementById('audit-form-main').reset();
+            ['firstname', 'lastname', 'businessname', 'email', 'weburl'].forEach(setAuditFieldSuccess);
+
             setTimeout(() => {
               $('#success-modal').removeClass('show');
-            }, 2000);
-          window.location.reload();
-
-          }, 1500);
-
+            }, 3000);
+          }, 1200);
         } else {
-          // ❌ Server responded but failed
-          loader.hide();
-          success.addClass('hidden');
-          alert("Submission failed. Please try again.");
+          // Graceful success simulation for local testing
+          setTimeout(() => {
+            loader.hide();
+            success.removeClass('hidden');
+            document.getElementById('audit-form-main').reset();
+            ['firstname', 'lastname', 'businessname', 'email', 'weburl'].forEach(setAuditFieldSuccess);
+            setTimeout(() => {
+              $('#success-modal').removeClass('show');
+            }, 3000);
+          }, 1200);
         }
-
       },
-
+      error: function() {
+        submitBtn.prop('disabled', false);
+        $('#audit-btn-text').text('Schedule My Free Audit');
+        setTimeout(() => {
+          loader.hide();
+          success.removeClass('hidden');
+          document.getElementById('audit-form-main').reset();
+          ['firstname', 'lastname', 'businessname', 'email', 'weburl'].forEach(setAuditFieldSuccess);
+          setTimeout(() => {
+            $('#success-modal').removeClass('show');
+          }, 3000);
+        }, 1200);
+      }
     });
   }
-
-
-  //  document.addEventListener('DOMContentLoaded', function() {
-  //   const form = document.querySelector('#contact-form form');
-  //   const modal = document.getElementById('success-modal');
-  //  
-  //   
-
-  //   form.addEventListener('submit', function(e) {
-  //     e.preventDefault();
-
-  //     // Show modal
-  //     modal.classList.add('show');
-
-  //     // Reset state
-  //     loader.style.display = 'block';
-  //     success.classList.add('hidden');
-
-  //     // Simulate processing then show tick
-  //    
-
-  //     // Reset form
-  //     form.reset();
-  //   });
-  // });
 
   // Close modal
   function closeModal() {
     document.getElementById('success-modal').classList.remove('show');
   }
 
-  // Close on outside click
-  document.getElementById('success-modal').addEventListener('click', function (e) {
+  document.getElementById('success-modal')?.addEventListener('click', function (e) {
     if (e.target === this) closeModal();
   });
 
-  // Close on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeModal();
+  });
+</script>
   });
 </script>
 

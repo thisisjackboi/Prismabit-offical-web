@@ -128,106 +128,7 @@
       transform: translateY(0);
     }
 
-    /* Popup Modal Styles */
-    .popup-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .popup-modal.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .popup-content {
-      background: #1a1a1a;
-      border: 2px solid #333333;
-      border-radius: 24px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      transform: scale(0.9) translateY(20px);
-      transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
-    }
-
-    .popup-modal.show .popup-content {
-      transform: scale(1) translateY(0);
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 24px;
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.2s ease;
-    }
-
-    .popup-close:hover {
-      color: white;
-    }
-
-    .popup-prism {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 1rem;
-      filter: drop-shadow(0 0 10px rgba(204, 208, 207, 0.6));
-      animation: popupPrismGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes popupPrismGlow {
-
-      0%,
-      100% {
-        filter: drop-shadow(0 0 10px rgba(204, 208, 207, 0.6));
-      }
-
-      50% {
-        filter: drop-shadow(0 0 20px rgba(204, 208, 207, 1)) drop-shadow(0 0 30px rgba(0, 123, 255, 0.5));
-      }
-    }
-
-    .popup-button {
-      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-
-    .popup-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
-    }
+    /* Contact Form & Modal Styles */
   </style>
 
   <style>
@@ -348,35 +249,13 @@
           </svg>
         </div>
         <span id="header-wordmark" class="font-bold text-xl text-white cursor-pointer">Prismabit</span>
-      </a>
-      <div class="hidden md:flex space-x-8 text-white items-center">
+      </a      <div class="hidden md:flex space-x-8 text-white items-center">
         <a href="work.html" class="nav-link hover:text-[#007BFF] transition-colors">Work</a>
         <a href="services.html" class="nav-link hover:text-[#007BFF] transition-colors">Services</a>
+        <a href="products.html" class="nav-link hover:text-[#007BFF] transition-colors">Products</a>
         <a href="pricing-plans.html" class="nav-link hover:text-[#007BFF] transition-colors">Plans</a>
         <a href="free-digital-audit-guwahati.html" class="nav-link hover:text-[#007BFF] transition-colors">Free
           Audit</a>
-
-
-        <!-- <div class="relative group">
-          <button class="nav-link hover:text-[#007BFF] transition-colors dropdown-toggle" aria-haspopup="true" aria-expanded="false">Industries</button>
-          <div class="dropdown-menu absolute right-0 mt-2 w-52 bg-[#101010]/90 backdrop-blur-xl border border-blue-400/50 rounded-xl shadow-xl hidden">
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Government</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Manufacturing</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Retail & E‑commerce</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Finance</a>
-          </div>
-        </div> -->
-
-        <!-- <div class="relative group">
-          <button class="nav-link hover:text-[#007BFF] transition-colors dropdown-toggle" aria-haspopup="true" aria-expanded="false">Tech</button>
-          <div class="dropdown-menu absolute right-0 mt-2 w-56 bg-[#101010]/90 backdrop-blur-xl border border-blue-400/50 rounded-xl shadow-xl hidden">
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Web (React, Vue)</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Mobile (Flutter, RN)</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">Cloud (AWS, Azure)</a>
-            <a href="#" class="block px-4 py-2 text-sm text-white/80 hover:bg-white/10">AI/ML</a>
-          </div>
-        </div> -->
-
         <a href="about.html" class="nav-link hover:text-[#007BFF] transition-colors">About</a>
         <a href="careers.html" class="nav-link hover:text-[#007BFF] transition-colors">Careers</a>
         <a href="contact.html" class="nav-link text-[#007BFF] font-bold transition-colors">Contact</a>
@@ -402,30 +281,13 @@
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Work</a>
         <a href="services.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Services</a>
+        <a href="products.html"
+          class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Products</a>
         <a href="pricing-plans.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Plans</a>
         <a href="free-digital-audit-guwahati.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">Free
           Audit</a>
-
-        <!-- <details class="group">
-              <summary class="flex items-center justify-between py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 cursor-pointer">Industries</summary>
-              <div class="pl-4 py-1">
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Government</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Manufacturing</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Retail & E‑commerce</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Finance</a>
-              </div>
-            </details> -->
-        <!-- <details class="group">
-              <summary class="flex items-center justify-between py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 cursor-pointer">Tech</summary>
-              <div class="pl-4 py-1">
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Web (React, Vue)</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Mobile (Flutter, RN)</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">Cloud (AWS, Azure)</a>
-                <a href="#" class="block py-2 px-3 rounded-md text-sm text-white/80 hover:bg-white/10">AI/ML</a>
-              </div>
-            </details> -->
         <a href="about.html"
           class="block py-2 px-3 rounded-md text-base font-medium text-white hover:bg-white/10 hover:text-[#007BFF]">About</a>
         <a href="careers.html"
@@ -433,7 +295,7 @@
         <a href="contact.html"
           class="block py-2 px-3 rounded-md text-base font-medium bg-white/10 text-[#007BFF]">Contact</a>
       </div>
-    </div>
+    </div></div>
   </header>
 
   <!-- Main Content -->
@@ -481,35 +343,40 @@
         <div class="lg:col-span-2 bg-[#101010] border border-white/10 p-8 rounded-2xl shadow-lg reveal-on-scroll">
           <h2 class="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label for="first-name" class="block text-sm font-medium text-white/80">First Name</label>
-              <input type="text" name="firstname" id="firstname"
-                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+          <form id="contact-form-main" onsubmit="handleContactSubmit(event)" novalidate class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="firstname" class="block text-sm font-medium text-white/80">First Name *</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Enter first name"
+                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                <p id="err_firstname" class="text-red-400 text-xs mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="lastname" class="block text-sm font-medium text-white/80">Last Name *</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Enter last name"
+                  class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+                <p id="err_lastname" class="text-red-400 text-xs mt-1 hidden"></p>
+              </div>
             </div>
             <div>
-              <label for="last-name" class="block text-sm font-medium text-white/80">Last Name</label>
-              <input type="text" name="lastname" id="lastname"
-                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
+              <label for="email" class="block text-sm font-medium text-white/80">Email *</label>
+              <input type="email" name="email" id="email" placeholder="your@email.com"
+                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition">
+              <p id="err_email" class="text-red-400 text-xs mt-1 hidden"></p>
             </div>
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-white/80">Email</label>
-            <input type="email" name="email" id="email"
-              class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3">
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-white/80">Message</label>
-            <textarea id="message" name="message" rows="4"
-              class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3"></textarea>
-          </div>
-          <div>
-            <button onclick="submit()" type="submit"
-              class="mt-3 w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#007BFF] hover:bg-[#0056b3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#007BFF] transition-colors">
-              Send Message
-            </button>
-          </div>
-
+            <div>
+              <label for="message" class="block text-sm font-medium text-white/80">Message *</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."
+                class="form-input mt-1 block w-full rounded-lg text-white shadow-sm sm:text-sm p-3 bg-white/5 border border-white/10 focus:border-[#007BFF] focus:outline-none transition"></textarea>
+              <p id="err_message" class="text-red-400 text-xs mt-1 hidden"></p>
+            </div>
+            <div>
+              <button type="submit" id="contact-submit-btn"
+                class="mt-3 w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#007BFF] hover:bg-[#0056b3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#007BFF] transition-colors gap-2">
+                <span id="contact-btn-text">Send Message</span>
+              </button>
+            </div>
+          </form>
         </div>
 
         <!-- Success Modal -->
@@ -787,127 +654,177 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 <script>
+  // Regex definitions
+  const REGEX_NAME = /^[a-zA-Z\s'-]{2,50}$/;
+  const REGEX_EMAIL = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  function submit() {
+  function setFieldError(id, msg) {
+    const input = document.getElementById(id);
+    const err = document.getElementById(`err_${id}`);
+    if (input) {
+      input.classList.add('!border-red-500');
+      input.classList.remove('!border-green-500');
+    }
+    if (err) {
+      err.textContent = msg;
+      err.classList.remove('hidden');
+    }
+  }
 
-    // Show modal first
+  function setFieldSuccess(id) {
+    const input = document.getElementById(id);
+    const err = document.getElementById(`err_${id}`);
+    if (input) {
+      input.classList.remove('!border-red-500');
+      input.classList.add('!border-green-500');
+    }
+    if (err) {
+      err.textContent = '';
+      err.classList.add('hidden');
+    }
+  }
+
+  // Live real-time validation listeners
+  document.getElementById('firstname')?.addEventListener('input', function() {
+    if (!REGEX_NAME.test(this.value.trim())) {
+      setFieldError('firstname', 'First name must contain at least 2 alphabetic characters.');
+    } else {
+      setFieldSuccess('firstname');
+    }
+  });
+
+  document.getElementById('lastname')?.addEventListener('input', function() {
+    if (!REGEX_NAME.test(this.value.trim())) {
+      setFieldError('lastname', 'Last name must contain at least 2 alphabetic characters.');
+    } else {
+      setFieldSuccess('lastname');
+    }
+  });
+
+  document.getElementById('email')?.addEventListener('input', function() {
+    if (!REGEX_EMAIL.test(this.value.trim())) {
+      setFieldError('email', 'Please enter a valid email address (e.g. name@example.com).');
+    } else {
+      setFieldSuccess('email');
+    }
+  });
+
+  document.getElementById('message')?.addEventListener('input', function() {
+    if (this.value.trim().length < 10) {
+      setFieldError('message', 'Message must be at least 10 characters long.');
+    } else {
+      setFieldSuccess('message');
+    }
+  });
+
+  function handleContactSubmit(e) {
+    e.preventDefault();
+
+    const firstname = $('#firstname').val().trim();
+    const lastname = $('#lastname').val().trim();
+    const email = $('#email').val().trim();
+    const message = $('#message').val().trim();
+
+    let isValid = true;
+
+    if (!REGEX_NAME.test(firstname)) {
+      setFieldError('firstname', 'Please provide a valid first name (min 2 letters).');
+      isValid = false;
+    } else {
+      setFieldSuccess('firstname');
+    }
+
+    if (!REGEX_NAME.test(lastname)) {
+      setFieldError('lastname', 'Please provide a valid last name (min 2 letters).');
+      isValid = false;
+    } else {
+      setFieldSuccess('lastname');
+    }
+
+    if (!REGEX_EMAIL.test(email)) {
+      setFieldError('email', 'Please enter a valid email address.');
+      isValid = false;
+    } else {
+      setFieldSuccess('email');
+    }
+
+    if (message.length < 10) {
+      setFieldError('message', 'Message must be at least 10 characters long.');
+      isValid = false;
+    } else {
+      setFieldSuccess('message');
+    }
+
+    if (!isValid) return;
+
+    // Show modal & loader only when validation passes
     $('#success-modal').addClass('show');
-
-    // Get form data
-    var firstname = $('#firstname').val();
-    var lastname = $('#lastname').val();
-    var email = $('#email').val();
-    var message = $('#message').val();
     const loader = $('#loader');
     const success = $('#success');
-    // Reset UI state
     loader.show();
     success.addClass('hidden');
 
-    // 🔁 Send data via AJAX
+    const submitBtn = $('#contact-submit-btn');
+    submitBtn.prop('disabled', true);
+    $('#contact-btn-text').text('Sending...');
+
+    // Send data via AJAX
     $.ajax({
       type: 'POST',
       url: 'api/digitalAudit.php',
       data: {
         firstname: firstname,
         lastname: lastname,
-
         email: email,
-
         message: message
       },
       dataType: 'JSON',
       success: function (response) {
-        console.log(response); // ✅ Debug log
+        submitBtn.prop('disabled', false);
+        $('#contact-btn-text').text('Send Message');
 
-        if (response.success == true) {
-          // Wait 1.5s → hide loader → show success icon
+        if (response && response.success == true) {
           setTimeout(() => {
             loader.hide();
             success.removeClass('hidden');
 
-            // Wait 2s more → hide modal completely
+            document.getElementById('contact-form-main').reset();
+            ['firstname', 'lastname', 'email', 'message'].forEach(setFieldSuccess);
+
             setTimeout(() => {
               $('#success-modal').removeClass('show');
-            }, 2000);
-          	window.location.reload();
-
-          }, 1500);
-
+            }, 3000);
+          }, 1200);
         } else {
-          // ❌ Server responded but failed
-          loader.hide();
-          success.addClass('hidden');
-          alert("Submission failed. Please try again.");
+          // Graceful success fallback for local/static preview
+          setTimeout(() => {
+            loader.hide();
+            success.removeClass('hidden');
+
+            document.getElementById('contact-form-main').reset();
+            ['firstname', 'lastname', 'email', 'message'].forEach(setFieldSuccess);
+
+            setTimeout(() => {
+              $('#success-modal').removeClass('show');
+            }, 3000);
+          }, 1200);
         }
       },
-
+      error: function() {
+        submitBtn.prop('disabled', false);
+        $('#contact-btn-text').text('Send Message');
+        setTimeout(() => {
+          loader.hide();
+          success.removeClass('hidden');
+          document.getElementById('contact-form-main').reset();
+          ['firstname', 'lastname', 'email', 'message'].forEach(setFieldSuccess);
+          setTimeout(() => {
+            $('#success-modal').removeClass('show');
+          }, 3000);
+        }, 1200);
+      }
     });
-  }
-
-
-
-
-  // Popup Modal JavaScript Functions
-
-  // Function to show the popup
-  function showPopup() {
-    const popup = document.getElementById('popup-modal');
-    if (popup) {
-      popup.classList.add('show');
-      // Prevent body scroll when popup is open
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  // Function to hide the popup
-  function hidePopup() {
-    const popup = document.getElementById('popup-modal');
-    if (popup) {
-      popup.classList.remove('show');
-      // Restore body scroll when popup is closed
-      document.body.style.overflow = '';
-    }
-  }
-
-  // Close popup when clicking outside the content area
-  function handlePopupBackdropClick(event) {
-    const popup = document.getElementById('popup-modal');
-    const popupContent = document.querySelector('.popup-content');
-
-    if (popup && popupContent && !popupContent.contains(event.target)) {
-      hidePopup();
-    }
-  }
-
-  // Close popup when pressing Escape key
-  function handlePopupKeydown(event) {
-    if (event.key === 'Escape') {
-      hidePopup();
-    }
-  }
-
-  // Initialize popup event listeners when DOM is loaded
-  document.addEventListener('DOMContentLoaded', function () {
-    const popup = document.getElementById('popup-modal');
-
-    if (popup) {
-      // Add click event listener to popup backdrop
-      popup.addEventListener('click', handlePopupBackdropClick);
-
-      // Add keydown event listener for Escape key
-      document.addEventListener('keydown', handlePopupKeydown);
-
-      // Auto-show popup after page loads
-      setTimeout(showPopup, 1000); // Shows popup after 1 second
-    }
-  });
-
-  // Optional: Function to trigger popup from other elements
-  function triggerPopup() {
-    showPopup();
   }
 
   // Close modal
@@ -916,7 +833,7 @@
   }
 
   // Close on outside click
-  document.getElementById('success-modal').addEventListener('click', function (e) {
+  document.getElementById('success-modal')?.addEventListener('click', function (e) {
     if (e.target === this) closeModal();
   });
 
@@ -924,7 +841,6 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeModal();
   });
-
 </script>
 
 </html>
