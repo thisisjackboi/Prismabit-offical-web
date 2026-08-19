@@ -106,54 +106,45 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(step);
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Trigger stat counters inside this revealed block immediately with fade-in
-        entry.target.querySelectorAll('.stat-number').forEach(animateStat);
-        // Special handling for the floating card section
-        if (entry.target.id === 'services-sticky-parent') {
-          entry.target.style.transform = 'scale(1)';
-          entry.target.style.opacity = '1';
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Trigger stat counters inside this revealed block immediately with fade-in
+          entry.target.querySelectorAll('.stat-number').forEach(animateStat);
+          // Special handling for the floating card section
+          if (entry.target.id === 'services-sticky-parent') {
+            entry.target.style.transform = 'scale(1)';
+            entry.target.style.opacity = '1';
+          }
+          observer.unobserve(entry.target);
         }
-      } else {
-        entry.target.classList.remove('visible');
-        // Reset special handling
-        if (entry.target.id === 'services-sticky-parent') {
-          entry.target.style.transform = '';
-          entry.target.style.opacity = '';
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+
+    document.querySelectorAll('.reveal-on-scroll, .service-card-scroll').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal-on-scroll, .service-card-scroll').forEach(el => el.classList.add('visible'));
+  }
+
+  // Also handle elements/stats that might already be in view on initial load
+  const checkInitialVisibility = () => {
+    document.querySelectorAll('.reveal-on-scroll, .service-card-scroll').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 100) {
+        el.classList.add('visible');
+        el.querySelectorAll('.stat-number').forEach(animateStat);
+        if (el.id === 'services-sticky-parent') {
+          el.style.transform = 'scale(1)';
+          el.style.opacity = '1';
         }
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal-on-scroll, .service-card-scroll').forEach(el => observer.observe(el));
-
-  // Also handle stats that might already be in view on initial load
-  document.querySelectorAll('.reveal-on-scroll .stat-number').forEach(el => {
-    const parent = el.closest('.reveal-on-scroll');
-    if (parent && parent.getBoundingClientRect().top < window.innerHeight) {
-      animateStat(el);
-      parent.classList.add('visible');
-    }
-  });
+  };
+  checkInitialVisibility();
+  window.addEventListener('load', checkInitialVisibility);
   
-  // =================================================================
-  // --- MOBILE HAMBURGER MENU ---
-  // =================================================================
-  // Toggles the visibility of the mobile navigation menu and the open/close icons.
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuOpenIcon = document.getElementById('menu-open-icon');
-  const menuCloseIcon = document.getElementById('menu-close-icon');
-
-  if (mobileMenuButton && mobileMenu && menuOpenIcon && menuCloseIcon) {
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuOpenIcon.classList.toggle('hidden');
-      menuCloseIcon.classList.toggle('hidden');
-    });
-  }
 
   // =================================================================
   // --- DESKTOP NAV DROPDOWNS (Industries, Tech) ---

@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 
-$host = "localhost";        // Database host (e.g., localhost or server IP)
-$username = "prismabit.co.in";         // MySQL username
-$password = "P@55w0rd";             // MySQL password
-$database = "crm_prismabit"; // Name of the database
+$host = getenv('DB_HOST') ?: "localhost";
+$username = getenv('DB_USER') ?: "prismabit.co.in";
+$password = getenv('DB_PASS') ?: "P@55w0rd";
+$database = getenv('DB_NAME') ?: "crm_prismabit";
 
 // Create a connection
 $conn = new mysqli($host, $username, $password, $database);
